@@ -1,0 +1,7 @@
+.DS_*
+*.out
+*.swp
+*.swo
+.vscode
+*.dSYM
+*.md
