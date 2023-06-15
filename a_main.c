@@ -1,6 +1,7 @@
 #include <unistd.h>
 #include "mlx.h"
 
+
 //이미지의 정보를 나타내는 변수를 저장한 구조체
 typedef struct s_data
 {
@@ -9,10 +10,10 @@ typedef struct s_data
 	int		bits_per_pixel;
 	int		line_length;
 	int		endian;
-}		t_data;
+}t_data;
 
 //원하는 좌표에 해당하는 주소에 color값을 넣는 함수
-void			my_mlx_pixel_put(t_data *data, int x, int y, int color)
+void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 {
 	char	*dst;
 

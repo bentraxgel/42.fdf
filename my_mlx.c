@@ -1,26 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
+/*   my_mlx.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: seok <seok@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/28 20:33:43 by seok              #+#    #+#             */
-/*   Updated: 2023/06/15 23:09:50 by seok             ###   ########.fr       */
+/*   Created: 2023/06/15 20:56:14 by seok              #+#    #+#             */
+/*   Updated: 2023/06/15 21:49:48 by seok             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "fdf.h"
 
-void	ft_lstadd_back(t_list **lst, t_list *new)
+void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 {
-	t_list	*tmp;
+	char	*dst;
 
-	if (*lst == NULL)
-	{
-		*lst = new;
-		return ;
-	}
-	tmp = ft_lstlast(*lst);
-	tmp->next = new;
+	dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
+	*(unsigned int*)dst = color;
 }
