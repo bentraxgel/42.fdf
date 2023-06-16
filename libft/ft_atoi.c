@@ -24,8 +24,8 @@ int	ft_atoi(const char *str)
 	result = 0;
 	while (ft_isspace(*str))
 		str++;
-	my_data
-	my_check_digit
+	// my_data
+	// my_check_digit
 	if (*str == '-' || *str == '+')
 	{
 		if (*str == '-')
