@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fdf.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: seok <seok@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: quesera <quesera@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 18:17:56 by seok              #+#    #+#             */
-/*   Updated: 2023/06/15 23:33:12 by seok             ###   ########.fr       */
+/*   Updated: 2023/06/18 00:27:34 by quesera          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include "libft/libft.h"
 #include "minilibx/mlx.h"
+#include <fcntl.h>
 
 #define COLOR 0x3399FF
 typedef int coordinates;
@@ -65,5 +66,10 @@ void	make_line(t_coordinate *dot, t_data *image);
 t_coordinate *new_coordinate(coordinates x, coordinates y, coordinates z);
 void	add_coordinate(t_coordinate *dot, coordinates x, coordinates y, coordinates z);
 
+// main_utill.c
+int	my_error(void);
+
+// mapping.c
+void	pasing(char *map);
 
 #endif

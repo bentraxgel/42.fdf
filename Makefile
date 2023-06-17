@@ -1,6 +1,6 @@
 CC = cc
 CFLAG = -Wall -Wextra -Werror -Imlx -g3 -fsanitize=address
-NAME = test
+NAME = fdf
 SRC = main.c make_line.c my_mlx.c
 OBJ = $(SRC:%.c=%.o)
 OBJ_DIR = obj
