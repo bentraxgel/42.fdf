@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fdf.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: quesera <quesera@student.42.fr>            +#+  +:+       +#+        */
+/*   By: seok <seok@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 18:17:56 by seok              #+#    #+#             */
-/*   Updated: 2023/06/18 00:27:34 by quesera          ###   ########.fr       */
+/*   Updated: 2023/06/18 03:01:09 by seok             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define FDF_H
 
 #include "libft/libft.h"
+#include "gnl/get_next_line.h"
 #include "minilibx/mlx.h"
 #include <fcntl.h>
 
@@ -42,6 +43,8 @@ typedef struct s_coordinate
 typedef struct s_info
 {
 	t_coordinate *head;
+	int			width;
+	int			height;
 }t_info;
 
 typedef struct s_data
@@ -67,7 +70,7 @@ t_coordinate *new_coordinate(coordinates x, coordinates y, coordinates z);
 void	add_coordinate(t_coordinate *dot, coordinates x, coordinates y, coordinates z);
 
 // main_utill.c
-int	my_error(void);
+int	my_error(char *err);
 
 // mapping.c
 void	pasing(char *map);

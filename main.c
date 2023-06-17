@@ -7,11 +7,11 @@ int	main(int ac, char *av[])
 	t_data	image;
 	t_info	dot_info; // head주소 받는 애
 	coordinates	x = 100;
-	coordinates y = 100;
-	coordinates z = 0;
+	coordinates	y = 100;
+	coordinates	z = 0;
 
 	if (ac != 2)
-		my_error();
+		my_error("argument error");
 	mlx_ptr = mlx_init();
 	win_ptr = mlx_new_window(mlx_ptr, 1000, 1000, "Hellow World!");
 	image.img = mlx_new_image(mlx_ptr, 800, 800);
