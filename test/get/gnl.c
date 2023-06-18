@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: seok <seok@student.42seoul.kr>             +#+  +:+       +#+        */
+/*   By: seok <seok@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 03:18:32 by quesera           #+#    #+#             */
-/*   Updated: 2023/06/18 03:58:14 by seok             ###   ########.fr       */
+/*   Updated: 2023/06/18 19:36:43 by seok             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,11 +104,11 @@ char	*my_save_check(int fd, t_list **head)
 	return (ret);
 }
 
-int	get_next_line(int fd, char *ret)
+int	get_next_line(int fd, char **ret)
 {
 	static t_list	*head;
 	t_list			*find;
-	char			*ret;
+	// char			*ret;
 
 	if (BUFFER_SIZE <= 0 || read(fd, NULL, 0) < 0)
 	{
@@ -124,11 +124,13 @@ int	get_next_line(int fd, char *ret)
 		}
 		return (false);
 	}
-	ret = my_save_check(fd, &head);
+	*ret = my_save_check(fd, &head);
 	if (head->fd == -1 && head->next == NULL)
 	{
 		free(head);
 		head = NULL;
 	}
+	if (*ret == NULL)
+		return (false);
 	return (true);
 }

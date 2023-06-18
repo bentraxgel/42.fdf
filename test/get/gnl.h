@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: seok <seok@student.42seoul.kr>             +#+  +:+       +#+        */
+/*   By: seok <seok@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 01:59:31 by seok              #+#    #+#             */
-/*   Updated: 2023/06/18 04:15:31 by seok             ###   ########.fr       */
+/*   Updated: 2023/06/18 18:58:02 by seok             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ t_list	*my_lst_make(t_list **head);
 t_list	*my_lst_find(t_list **head, int f_fd);
 int		my_save_buf(t_list *find, char **ret, int check);
 char	*my_save_check(int fd, t_list **head);
-// int		get_next_line(int fd, char *ret);
+int		get_next_line(int fd, char **ret);
 
 #endif
 

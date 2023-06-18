@@ -10,6 +10,7 @@ int	main(int ac, char *av[])
 	coordinates	y = 100;
 	coordinates	z = 0;
 
+(void)av;
 	if (ac != 2)
 		my_error("argument error");
 	mlx_ptr = mlx_init();
@@ -19,15 +20,13 @@ int	main(int ac, char *av[])
 
 	/* TODO 파싱해서 리스트에 집어넣어야함 */
 // /*
-	//TODO 이거 다시 결과물 출력해봐야함. 왜냐하면 나는 add_coordinate로 출력안된거같아.....젠장@!!!
-	my_mlx_pixel_put(&image, x + 1, y + 1, COLOR);
-	my_mlx_pixel_put(&image, x + 2, y + 2, COLOR);
-	dot_info.head = new_coordinate(x, y, z); //head 생성됐잖아
+	dot_info.head = new_coordinate(x, y, z);
 	// // for (;x < 400; x += 50)
 	// {
 	// 	// for (;y < 300; y += 50)
-			add_coordinate(dot_info.head, x + 1, y + 1, z); //리스트 만들어서 좌표값 집어넣는것.
-			add_coordinate(dot_info.head, x + 2, y + 2, z); //head 주잖아 그러면...
+			add_coordinate(dot_info.head, x + 1, y + 1, z); 
+			add_coordinate(dot_info.head, x + 2, y + 2, z); 
+			//잘되는거 확인 완! 반복문도 한번 써서 해보장
 	// }
 	for (t_coordinate *tmp = dot_info.head; tmp->next != NULL; tmp = tmp->next)
 		make_line(dot_info.head, &image);

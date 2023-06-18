@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: seok <seok@student.42seoul.kr>             +#+  +:+       +#+        */
+/*   By: seok <seok@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 03:18:32 by quesera           #+#    #+#             */
-/*   Updated: 2023/06/18 03:58:14 by seok             ###   ########.fr       */
+/*   Updated: 2023/06/18 22:46:18 by seok             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-t_list	*my_lst_make(t_list **head)
+t_lst	*my_lst_make(t_lst **head)
 {
-	(*head) = malloc(sizeof(t_list));
+	(*head) = malloc(sizeof(t_lst));
 	if (!(*head))
 		return (NULL);
 	(*head)->fd = -1;
@@ -22,10 +22,10 @@ t_list	*my_lst_make(t_list **head)
 	return (*head);
 }
 
-t_list	*my_lst_find(t_list **head, int f_fd)
+t_lst	*my_lst_find(t_lst **head, int f_fd)
 {
-	t_list	*temp;
-	t_list	*remember;
+	t_lst	*temp;
+	t_lst	*remember;
 
 	if (*head == NULL)
 		*head = my_lst_make(head);
@@ -39,7 +39,7 @@ t_list	*my_lst_find(t_list **head, int f_fd)
 	remember = *head;
 	while ((*head)->next)
 		(*head) = (*head)->next;
-	temp = malloc(sizeof(t_list));
+	temp = malloc(sizeof(t_lst));
 	if (!temp)
 		return (NULL);
 	(*head)->next = temp;
@@ -50,7 +50,7 @@ t_list	*my_lst_find(t_list **head, int f_fd)
 	return (temp);
 }
 
-int	my_save_buf(t_list *find, char **ret, int check)
+int	my_save_buf(t_lst *find, char **ret, int check)
 {
 	char	*temp;
 	int		idx;
@@ -77,11 +77,11 @@ int	my_save_buf(t_list *find, char **ret, int check)
 	return (check);
 }
 
-char	*my_save_check(int fd, t_list **head)
+char	*my_save_check(int fd, t_lst **head)
 {
 	char		*ret;
 	int			check;
-	t_list		*find;
+	t_lst		*find;
 
 	ret = 0;
 	check = 0;
@@ -106,9 +106,8 @@ char	*my_save_check(int fd, t_list **head)
 
 int	get_next_line(int fd, char *ret)
 {
-	static t_list	*head;
-	t_list			*find;
-	char			*ret;
+	static t_lst	*head;
+	t_lst			*find;
 
 	if (BUFFER_SIZE <= 0 || read(fd, NULL, 0) < 0)
 	{

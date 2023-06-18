@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fdf.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: seok <seok@student.42seoul.kr>             +#+  +:+       +#+        */
+/*   By: seok <seok@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 18:17:56 by seok              #+#    #+#             */
-/*   Updated: 2023/06/18 03:01:09 by seok             ###   ########.fr       */
+/*   Updated: 2023/06/18 22:52:51 by seok             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 #include "gnl/get_next_line.h"
 #include "minilibx/mlx.h"
 #include <fcntl.h>
+#include <errno.h>
+#include <stdio.h>
 
 #define COLOR 0x3399FF
 typedef int coordinates;
@@ -40,7 +42,7 @@ typedef struct s_coordinate
 	struct s_coordinate	*next;
 }t_coordinate;
 
-typedef struct s_info
+typedef struct s_info //TODO 초기화가 필요해
 {
 	t_coordinate *head;
 	int			width;
@@ -70,7 +72,8 @@ t_coordinate *new_coordinate(coordinates x, coordinates y, coordinates z);
 void	add_coordinate(t_coordinate *dot, coordinates x, coordinates y, coordinates z);
 
 // main_utill.c
-int	my_error(char *err);
+int		my_error(char *err);
+void	*alloc_guard(size_t typesize, size_t count);
 
 // mapping.c
 void	pasing(char *map);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utill.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: seok <seok@student.42seoul.kr>             +#+  +:+       +#+        */
+/*   By: seok <seok@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 02:06:52 by seok              #+#    #+#             */
-/*   Updated: 2023/06/18 00:58:43 by seok             ###   ########.fr       */
+/*   Updated: 2023/06/18 22:43:05 by seok             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ size_t	my_strlen(const char *s)
 	return ((size_t) idx);
 }
 
-void	my_lst_free(t_list *find, t_list *head)
+void	my_lst_free(t_lst *find, t_lst *head)
 {
-	t_list	*temp;
+	t_lst	*temp;
 
 	temp = head;
 	while (temp->next != NULL && temp->next != find)
