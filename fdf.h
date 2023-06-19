@@ -6,7 +6,7 @@
 /*   By: seok <seok@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 18:17:56 by seok              #+#    #+#             */
-/*   Updated: 2023/06/15 23:33:12 by seok             ###   ########.fr       */
+/*   Updated: 2023/06/19 21:13:57 by seok             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include "libft/libft.h"
 #include "minilibx/mlx.h"
 
-#define COLOR 0x3399FF
+#define COLOR 0xF25000
 typedef int coordinates;
 
 typedef struct s_position
@@ -63,7 +63,8 @@ void	make_line(t_coordinate *dot, t_data *image);
 
 // main.c
 t_coordinate *new_coordinate(coordinates x, coordinates y, coordinates z);
-void	add_coordinate(t_coordinate *dot, coordinates x, coordinates y, coordinates z);
+// void	add_coordinate(t_coordinate *dot, coordinates x, coordinates y, coordinates z);
+void	add_coordinate(t_coordinate *dot, t_info *dot_info, coordinates x, coordinates y, coordinates z);
 
 
 #endif
