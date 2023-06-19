@@ -15,7 +15,7 @@ int	main()
 	win_ptr = mlx_new_window(mlx_ptr, 1000, 1000, "Hellow World!");
 	image.img = mlx_new_image(mlx_ptr, 800, 800);
 	image.addr = mlx_get_data_addr(image.img, &image.bits_per_pixel, &image.line_length, &image.endian);
-
+//TODO
 	//my_mlx_pixel_put(&image, x + 1, y + 1, COLOR);
 	//my_mlx_pixel_put(&image, x + 2, y + 2, COLOR);
 	// dot_info.head = new_coordinate(x, y, z); //head 생성됐잖아
