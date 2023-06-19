@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <fcntl.h>
 #include <errno.h>
-#include "get/get_next_line.h"
+#include "get/gnl.h"
 
 void	leaks(void)
 {
