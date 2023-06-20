@@ -6,7 +6,7 @@
 /*   By: seok <seok@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 18:17:56 by seok              #+#    #+#             */
-/*   Updated: 2023/06/19 21:13:57 by seok             ###   ########.fr       */
+/*   Updated: 2023/06/20 17:23:47 by seok             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include "libft/libft.h"
 #include "minilibx/mlx.h"
 
-#define COLOR 0xF25000
+#define COLOR 0x9DE4FF
 typedef int coordinates;
 
 typedef struct s_position
@@ -41,6 +41,7 @@ typedef struct s_coordinate
 typedef struct s_info
 {
 	t_coordinate *head;
+	t_coordinate *tail;
 }t_info;
 
 typedef struct s_data
@@ -66,5 +67,6 @@ t_coordinate *new_coordinate(coordinates x, coordinates y, coordinates z);
 // void	add_coordinate(t_coordinate *dot, coordinates x, coordinates y, coordinates z);
 void	add_coordinate(t_coordinate *dot, t_info *dot_info, coordinates x, coordinates y, coordinates z);
 
+void	a_add_coordinate(t_info *dot_info, coordinates x, coordinates y, coordinates z);
 
 #endif
