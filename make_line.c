@@ -6,47 +6,42 @@
 /*   By: seok <seok@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 15:37:34 by seok              #+#    #+#             */
-/*   Updated: 2023/06/20 23:21:44 by seok             ###   ########.fr       */
+/*   Updated: 2023/06/21 19:16:49 by seok             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-int	ft_abs(int n)
-{
-	if (n < 0)
-		return (n * -1);
-	return (n);
-}
 
-void	set_position(t_position *pos, t_coordinate *dot)
+
+void	set_position(t_position *pos, t_coordinate *cur, t_coordinate *next)
 {
-	pos->x = dot->x;
-	pos->y = dot->y;
-	pos->dx = ft_abs(dot->x - dot->next->x);
-	pos->dy = ft_abs(dot->y - dot->next->y);
-	if (dot->x <= dot->next->x)
+	pos->x = cur->x;
+	pos->y = cur->y;
+	pos->dx = ft_abs(cur->x - next->x);
+	pos->dy = ft_abs(cur->y - next->y);
+	if (cur->x <= next->x)
 		pos->add_x = 1;
 	else
 		pos->add_x = -1;
-	if (dot->y <= dot->next->y)
+	if (cur->y <= next->y)
 		pos->add_y = 1;
 	else
 		pos->add_y = -1;
 }
 
-void	make_line(t_coordinate *dot, t_data *image)
+void	make_line(t_coordinate *cur, t_coordinate *next, t_data *image)
 {
 	int			p;
 	t_position	pos;
 
-	set_position(&pos, dot);
+	set_position(&pos, cur, next);
 	if (pos.dy <= pos.dx)
 	{
 		p = 2 * (pos.dy - pos.dx);
-		if (dot->x <= dot->next->x)
+		if (cur->x <= next->x)
 		{
-			while (pos.x <= dot->next->x)
+			while (pos.x <= next->x)
 			{
 				if (p <= 0)
 					p += 2 * pos.dy;
@@ -61,7 +56,7 @@ void	make_line(t_coordinate *dot, t_data *image)
 		}
 		else
 		{
-			while (pos.x >= dot->next->x)
+			while (pos.x >= next->x)
 			{
 				if (p <= 0)
 					p += 2 * pos.dy;
@@ -78,9 +73,9 @@ void	make_line(t_coordinate *dot, t_data *image)
 	else
 	{
 		p = 2 * (pos.dx - pos.dy);
-		if (dot->y <= dot->next->y)
+		if (cur->y <= next->y)
 		{
-			while (pos.y <= dot->next->y)
+			while (pos.y <= next->y)
 			{
 				if (p <= 0)
 					p += 2 * pos.dx;
@@ -95,7 +90,7 @@ void	make_line(t_coordinate *dot, t_data *image)
 		}
 		else
 		{
-			while (pos.y >= dot->next->y)
+			while (pos.y >= next->y)
 			{
 				if (p <= 0)
 					p += 2 * pos.dx;

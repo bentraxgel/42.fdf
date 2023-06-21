@@ -24,6 +24,7 @@ int	ft_atoi(const char *str)
 	result = 0;
 	while (ft_isspace(*str))
 		str++;
+	//TODO atoipro로 만들어~줘
 	// my_data
 	// my_check_digit
 	if (*str == '-' || *str == '+')

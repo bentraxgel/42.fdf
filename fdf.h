@@ -6,7 +6,7 @@
 /*   By: seok <seok@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 18:17:56 by seok              #+#    #+#             */
-/*   Updated: 2023/06/20 17:23:47 by seok             ###   ########.fr       */
+/*   Updated: 2023/06/21 19:21:21 by seok             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,33 +15,33 @@
 
 #include "libft/libft.h"
 #include "minilibx/mlx.h"
-
-#define COLOR 0x9DE4FF
-typedef int coordinates;
+#include <stdio.h> //perror
+#define COLOR 0xFFFFFF
 
 typedef struct s_position
 {
-	coordinates x;
-	coordinates y;
-	coordinates add_x;
-	coordinates add_y;
-	coordinates	dx;
-	coordinates	dy;
+	int x;
+	int y;
+	int add_x;
+	int add_y;
+	int	dx;
+	int	dy;
 }t_position;
 
 typedef struct s_coordinate
 {
-	coordinates	x;
-	coordinates	y;
-	coordinates z;
-	//+? color variable
-	struct s_coordinate	*next;
+	int	x;
+	int	y;
+	int z;
+	int	color;
 }t_coordinate;
 
 typedef struct s_info
 {
 	t_coordinate *head;
 	t_coordinate *tail;
+	int	width;
+	int	height;
 }t_info;
 
 typedef struct s_data
@@ -57,16 +57,15 @@ typedef struct s_data
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
 
 // make_line.c
-int		ft_abs(int n);
-void	set_position(t_position *pos, t_coordinate *dot);
-void	make_line2(t_position *pos, coordinates p, t_data *image);
-void	make_line(t_coordinate *dot, t_data *image);
+void	set_position(t_position *pos, t_coordinate *cur, t_coordinate *next);
+void	make_line2(t_position *pos, int p, t_data *image);
+void	make_line(t_coordinate *cur, t_coordinate *next, t_data *image);
 
 // main.c
-t_coordinate *new_coordinate(coordinates x, coordinates y, coordinates z);
-// void	add_coordinate(t_coordinate *dot, coordinates x, coordinates y, coordinates z);
-void	add_coordinate(t_coordinate *dot, t_info *dot_info, coordinates x, coordinates y, coordinates z);
+t_coordinate *new_coordinate(int x, int y, int z);
+// void	add_coordinate(t_coordinate *dot, int x, int y, int z);
+void	add_coordinate(t_coordinate *dot, t_info *dot_info, int x, int y, int z);
 
-void	a_add_coordinate(t_info *dot_info, coordinates x, coordinates y, coordinates z);
+void	a_add_coordinate(t_info *dot_info, int x, int y, int z);
 
 #endif
