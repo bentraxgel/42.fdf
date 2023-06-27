@@ -2,8 +2,8 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror
 ARFLAGS = rc
 NAME = gnl.a
-INCD = get_next_line.h
-SRCS = get_next_line.c get_next_line_utill.c
+INCD = gnl.h
+SRCS = gnl.c gnlutill.c
 OBJS = $(SRCS:.c=.o)
 $(NAME) : $(NAME)($(OBJS))
 

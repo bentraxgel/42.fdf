@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   gnl.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: seok <seok@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 01:59:31 by seok              #+#    #+#             */
-/*   Updated: 2023/06/18 18:58:02 by seok             ###   ########.fr       */
+/*   Updated: 2023/06/27 21:21:44 by seok             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef C62A3609_5E12_4FBE_9D3A_76FF795BA66A
 #define C62A3609_5E12_4FBE_9D3A_76FF795BA66A
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#ifndef GNL_H
+# define GNL_H
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 42

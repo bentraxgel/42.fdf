@@ -3,8 +3,8 @@ CFLAG = -Wall -Wextra -Werror -Imlx -g3 -fsanitize=address
 NAME = fdf
 SRC = main.c main_utill.c make_line.c my_mlx.c
 OBJ = $(SRC:%.c=%.o)
-OBJ_DIR = obj
-OBJ_FILE = $(addprefix $(OBJ_DIR)/, $(OBJ))
+OBJ_DIR = obj/
+OBJ_FILE = $(addprefix $(OBJ_DIR), $(OBJ))
 LIB_DIR = ./libft/
 GNL_DIR = ./gnl/
 

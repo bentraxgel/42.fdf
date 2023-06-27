@@ -3,7 +3,13 @@ CFLAGS = -Wall -Wextra -Werror
 ARFLAGS = rc
 NAME = libft.a
 INCD = libft.h
-SRCS = ft_isalpha.c\
+MOD_DIR = module_my/
+MOD_SRC = $(addprefix $(MOD_DIR), \
+			my_atoi_pro.c\
+			my_atoi_hex.c)
+
+SRCS = $(MOD_SRC)\
+		ft_isalpha.c\
 			ft_isdigit.c\
 			ft_isalnum.c\
 			ft_isascii.c\
@@ -50,16 +56,17 @@ SRCS = ft_isalpha.c\
 			ft_lstclear.c\
 			ft_lstiter.c\
 			ft_lstmap.c
+
 OBJS = $(SRCS:.c=.o)
 $(NAME) : $(NAME)($(OBJS))
 
 all : $(NAME)
 
 clean :
-	rm -rf $(OBJS) $(OBJS_BNS)
+	rm -rf $(OBJS)
 
 fclean : clean
-	rm -rf $(NAME) $(OBJS_BNS)
+	rm -rf $(NAME)
 
 re : fclean all
 

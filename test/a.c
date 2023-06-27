@@ -1,16 +1,25 @@
-#include <stdio.h>
+#include "get/gnl.h"
+# include <unistd.h>
+# include <string.h>
+# include <stdlib.h>
 #include <fcntl.h>
 #include <errno.h>
-#include "get/gnl.h"
+#include <stdio.h>
 
 void	leaks(void)
 {
 	system("leaks -q a.out");
 }
 
+int	my_error(char *err)
+{
+	perror(err);
+	exit(EXIT_FAILURE);
+}
+
 int	main()
 {
-	// atexit(leaks);
+	atexit(leaks);
 	int i = 0;
 	char *str;
 	int fd = open("c.txt", O_RDONLY);
@@ -30,8 +39,8 @@ int	main()
 		i++;
 		if (i == 2)
 		{
-			perror("this is B");
-			exit(-1);
+			my_error("this is B");
+			// exit(-1);
 		}
 		printf("%d : %s", i, str);
 		free(str);

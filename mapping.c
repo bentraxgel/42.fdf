@@ -6,7 +6,7 @@
 /*   By: seok <seok@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 17:27:59 by quesera           #+#    #+#             */
-/*   Updated: 2023/06/18 23:15:41 by seok             ###   ########.fr       */
+/*   Updated: 2023/06/27 23:47:05 by seok             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,14 @@ void	pasing(char *map, t_info *dot_info)
 
 int	main(int ac, char *av[])
 {
+	t_coordinate	*map;
 	t_info	info;
-	pasing(av[1], &info);
+
+	cnt_width(av[1], &info);
+	cnt_height(av[1], &info);
+	map = (t_coordinate *)malloc(sizeof(t_coordinate) * (info.width * info.height));
+
+	parsing(&map, av[1], &info);
 	printf("width : %d\theight : %d\n", info.width, info.height);
+/* 반복문 돌리며 값 넣기 */
 }
