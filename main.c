@@ -1,6 +1,6 @@
 #include "fdf.h"
 #include "libft/libft.h"
-int	main()
+int	main(int ac, char *av[])
 {
 	int	row;
 	int	col;
@@ -10,21 +10,24 @@ int	main()
 	t_info	info; // head주소 받는 애
 	t_coordinate	*map;
 
-	info.width = 2;
-	info.height = 2;
+	if (ac != 2)
+		my_error("not 2 argc");
+	cnt_width(av[1], &info);
+	cnt_height(av[1], &info);
 	map = (t_coordinate *)malloc(sizeof(t_coordinate) * (info.width * info.height));
-	map[0].x = 100;
-	map[0].y = 100;
-	map[1].x = 300;
-	map[1].y = 100;
-	map[2].x = 100;
-	map[2].y = 300;
-	map[3].x = 300;
-	map[3].y = 300;
+	parsing(map, av[1], &info);
 	
-/* parsing */
+	for (int i = 0; i < info.width * info.height; i++)
+	{
+		map[i].x *= 50;
+		map[i].y *= 50;
+		map[i].x += 100;
+		map[i].y += 100;
+	}
+	
+/* parsing - need add exception */
 	mlx_ptr = mlx_init();
-	win_ptr = mlx_new_window(mlx_ptr, 1000, 1000, "Hellow World!");
+	win_ptr = mlx_new_window(mlx_ptr, 1200, 1200, "Hellow World!");
 	image.img = mlx_new_image(mlx_ptr, 800, 800);
 	image.addr = mlx_get_data_addr(image.img, &image.bits_per_pixel, &image.line_length, &image.endian);
 
@@ -38,7 +41,7 @@ int	main()
 		while (row < info.height - 1 && ++col < info.width)
 			make_line(&map[info.width * row + col], &map[info.width * (row + 1) + col], &image);
 	}
-	mlx_put_image_to_window(mlx_ptr, win_ptr, image.img, 100, 100);
+	mlx_put_image_to_window(mlx_ptr, win_ptr, image.img, 0, 0);
 	mlx_loop(mlx_ptr);
 	return (0);
 

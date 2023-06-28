@@ -1,14 +1,15 @@
 CC = cc
 CFLAG = -Wall -Wextra -Werror -Imlx -g3 -fsanitize=address
 NAME = test
-SRC = main.c make_line.c my_mlx.c
+SRC = main.c make_line.c my_mlx.c parsing.c main_utill.c
 OBJ = $(SRC:%.c=%.o)
 OBJ_DIR = obj
 OBJ_FILE = $(addprefix $(OBJ_DIR)/, $(OBJ))
 LIB_DIR = ./libft
+USE_LIB = 
 
 $(NAME): $(OBJ_FILE)
-	make -C $(LIB_DIR) re
+	make -C $(LIB_DIR)
 	$(CC) $(CFLAG) -L $(LIB_DIR) -l ft -Lminilibx -lmlx -framework OpenGL -framework AppKit -o $(NAME) $(OBJ_FILE) -g
 $(OBJ_DIR) : 
 	mkdir -p $(OBJ_DIR)
@@ -22,5 +23,6 @@ clean :
 fclean : clean
 	make -C $(LIB_DIR) fclean
 	rm -rf $(NAME)
-re : fclean all
+re : fclean
+	make all
 .PHONY : all clean fclean re

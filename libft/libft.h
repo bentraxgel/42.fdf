@@ -71,6 +71,8 @@ char	*ft_itoa_unsign(unsigned int num);
 char	*ft_itoa_hex(unsigned int num, char ch);
 char	*ft_itoa_hex_long(unsigned long long num);
 size_t	ft_lstlen(t_list *lst);
-int		ft_abs(int n);
+int		my_atoi_pro(const char *str);
+int		my_atoi_hex(const char *str);
+int	ft_abs(int n);
 
 #endif
