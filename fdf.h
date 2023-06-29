@@ -6,7 +6,7 @@
 /*   By: seok <seok@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 18:17:56 by seok              #+#    #+#             */
-/*   Updated: 2023/06/28 10:17:53 by seok             ###   ########.fr       */
+/*   Updated: 2023/06/29 18:44:35 by seok             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,15 @@
 
 #include "libft/libft.h"
 #include "libft/gnl/get_next_line.h"
-#include "minilibx/mlx.h"
+#include "minilibx-linux/mlx.h"
 #include <fcntl.h>
 #include <errno.h>
 #include <stdio.h>
+#include <math.h>
 
 #define COLOR 0xFFFFFF
+#define	RAD	3.1415926 / 180
+#define	DEGREE 50
 
 typedef struct s_position
 {
@@ -82,5 +85,11 @@ void	parsing(t_coordinate *map, char *av, t_info *info);
 void	cnt_height(char *av, t_info *info);
 void	cnt_width(char *av, t_info *info);
 void	is_color(char *str, t_info *info);
+
+// rotation_matrix.c
+int near_int(double n);
+void	x_rotation(t_coordinate *map, t_info *info);
+void	y_rotation(t_coordinate *map, t_info *info);
+void	z_rotation(t_coordinate *map, t_info *info);
 
 #endif

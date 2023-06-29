@@ -19,16 +19,23 @@ int	main(int ac, char *av[])
 	
 	for (int i = 0; i < info.width * info.height; i++)
 	{
-		map[i].x *= 50;
-		map[i].y *= 50;
-		map[i].x += 100;
-		map[i].y += 100;
+		map[i].x *= 30;
+		map[i].y *= 30;
+		map[i].z *= 30;
+		// map[i].y -= map[i].z * 30;
+		map[i].x += 300;
+		map[i].y += 200;
 	}
+	// z_rotation(map, &info);
+	x_rotation(map, &info);
+	y_rotation(map, &info);
+	z_rotation(map, &info);
+	// map[10].y += 10;
 	
 /* parsing - need add exception */
 	mlx_ptr = mlx_init();
 	win_ptr = mlx_new_window(mlx_ptr, 1200, 1200, "Hellow World!");
-	image.img = mlx_new_image(mlx_ptr, 800, 800);
+	image.img = mlx_new_image(mlx_ptr, 1200, 1200);
 	image.addr = mlx_get_data_addr(image.img, &image.bits_per_pixel, &image.line_length, &image.endian);
 
 	row = -1;

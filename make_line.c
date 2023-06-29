@@ -6,13 +6,11 @@
 /*   By: seok <seok@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 15:37:34 by seok              #+#    #+#             */
-/*   Updated: 2023/06/21 19:16:49 by seok             ###   ########.fr       */
+/*   Updated: 2023/06/29 14:52:27 by seok             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
-
-
 
 void	set_position(t_position *pos, t_coordinate *cur, t_coordinate *next)
 {
