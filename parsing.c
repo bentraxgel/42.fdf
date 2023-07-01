@@ -6,7 +6,7 @@
 /*   By: seok <seok@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 21:53:31 by seok              #+#    #+#             */
-/*   Updated: 2023/06/29 14:27:02 by seok             ###   ########.fr       */
+/*   Updated: 2023/07/01 15:38:33 by seok             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,10 @@ void	parsing(t_coordinate *map, char *av, t_info *info)
 		{
 			map[i + (info->width * h)].x = i;
 			map[i + (info->width * h)].y = h;
+			map[i + (info->width * h)].color = COLOR;
 			map[i + (info->width * h)].z = ft_atoi(word[i]);
+			if (map[i + (info->width * h)].z != 0)
+				map[i + (info->width * h)].color = 0xE47AE0;
 			if (info->color == true)
 				map[i + (info->width * h)].color = my_atoi_hex(word[i]);
 		}

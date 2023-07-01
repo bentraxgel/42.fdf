@@ -6,7 +6,7 @@
 /*   By: seok <seok@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 18:17:56 by seok              #+#    #+#             */
-/*   Updated: 2023/06/29 18:44:35 by seok             ###   ########.fr       */
+/*   Updated: 2023/07/01 15:55:36 by seok             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 
 #define COLOR 0xFFFFFF
 #define	RAD	3.1415926 / 180
-#define	DEGREE 50
+#define	DEGREE 15
 
 typedef struct s_position
 {
@@ -88,8 +88,9 @@ void	is_color(char *str, t_info *info);
 
 // rotation_matrix.c
 int near_int(double n);
-void	x_rotation(t_coordinate *map, t_info *info);
-void	y_rotation(t_coordinate *map, t_info *info);
-void	z_rotation(t_coordinate *map, t_info *info);
+void	x_rotation(t_coordinate *map, t_info *info, int deg);
+void	y_rotation(t_coordinate *map, t_info *info, int deg);
+void	z_rotation(t_coordinate *map, t_info *info, int deg);
+void	not_z_rotation(t_coordinate *map, t_info *info, int deg);
 
 #endif

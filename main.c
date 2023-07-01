@@ -21,21 +21,22 @@ int	main(int ac, char *av[])
 	{
 		map[i].x *= 30;
 		map[i].y *= 30;
-		map[i].z *= 30;
+		map[i].z *= 5;
 		// map[i].y -= map[i].z * 30;
-		map[i].x += 300;
-		map[i].y += 200;
+		map[i].x += 400;
+		map[i].y += 50;
 	}
 	// z_rotation(map, &info);
-	x_rotation(map, &info);
-	y_rotation(map, &info);
-	z_rotation(map, &info);
+	// not_z_rotation(map, &info, 45);
+	z_rotation(map, &info, 45);
+	// y_rotation(map, &info, 15);
+	x_rotation(map, &info, 30);
 	// map[10].y += 10;
 	
 /* parsing - need add exception */
 	mlx_ptr = mlx_init();
-	win_ptr = mlx_new_window(mlx_ptr, 1200, 1200, "Hellow World!");
-	image.img = mlx_new_image(mlx_ptr, 1200, 1200);
+	win_ptr = mlx_new_window(mlx_ptr, 1200, 1100, "Hellow World!");
+	image.img = mlx_new_image(mlx_ptr, 1200, 1100);
 	image.addr = mlx_get_data_addr(image.img, &image.bits_per_pixel, &image.line_length, &image.endian);
 
 	row = -1;

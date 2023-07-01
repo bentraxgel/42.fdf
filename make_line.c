@@ -6,7 +6,7 @@
 /*   By: seok <seok@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 15:37:34 by seok              #+#    #+#             */
-/*   Updated: 2023/06/29 14:52:27 by seok             ###   ########.fr       */
+/*   Updated: 2023/07/01 16:13:53 by seok             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	make_line(t_coordinate *cur, t_coordinate *next, t_data *image)
 					p += 2 * (pos.dy - pos.dx);
 					pos.y += pos.add_y;
 				}
-				my_mlx_pixel_put(image, pos.x, pos.y, COLOR);
+				my_mlx_pixel_put(image, pos.x, pos.y, cur->color);
 				pos.x += pos.add_x;
 			}
 		}
@@ -63,7 +63,7 @@ void	make_line(t_coordinate *cur, t_coordinate *next, t_data *image)
 					p += 2 * (pos.dy - pos.dx);
 					pos.y += pos.add_y;
 				}
-				my_mlx_pixel_put(image, pos.x, pos.y, COLOR);
+				my_mlx_pixel_put(image, pos.x, pos.y, next->color);
 				pos.x += pos.add_x;
 			}
 		}
@@ -82,7 +82,7 @@ void	make_line(t_coordinate *cur, t_coordinate *next, t_data *image)
 					p += 2 * (pos.dx - pos.dy);
 					pos.x += pos.add_x;
 				}
-				my_mlx_pixel_put(image, pos.x, pos.y, COLOR);
+				my_mlx_pixel_put(image, pos.x, pos.y, next->color);
 				pos.y += pos.add_y;
 			}
 		}
@@ -97,7 +97,7 @@ void	make_line(t_coordinate *cur, t_coordinate *next, t_data *image)
 					p += 2 * (pos.dx - pos.dy);
 					pos.x += pos.add_x;
 				}
-				my_mlx_pixel_put(image, pos.x, pos.y, COLOR);
+				my_mlx_pixel_put(image, pos.x, pos.y, next->color);
 				pos.y += pos.add_y;
 			}
 		}
