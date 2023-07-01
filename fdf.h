@@ -6,7 +6,7 @@
 /*   By: seok <seok@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 18:17:56 by seok              #+#    #+#             */
-/*   Updated: 2023/07/01 15:55:36 by seok             ###   ########.fr       */
+/*   Updated: 2023/07/01 20:24:07 by seok             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 #include "libft/libft.h"
 #include "libft/gnl/get_next_line.h"
-#include "minilibx-linux/mlx.h"
+#include "minilibx/mlx.h"
 #include <fcntl.h>
 #include <errno.h>
 #include <stdio.h>
@@ -24,6 +24,14 @@
 #define COLOR 0xFFFFFF
 #define	RAD	3.1415926 / 180
 #define	DEGREE 15
+#define	WIN_W	1200
+#define WIN_H	1100
+
+typedef enum e_flag
+{
+	X = 0,
+	Y,
+}t_flag;
 
 typedef struct s_position
 {

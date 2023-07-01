@@ -6,7 +6,7 @@
 /*   By: seok <seok@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 00:17:39 by quesera           #+#    #+#             */
-/*   Updated: 2023/06/27 23:12:01 by seok             ###   ########.fr       */
+/*   Updated: 2023/07/01 20:25:01 by seok             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,3 +37,11 @@ void	*alloc_guard(size_t typesize, size_t count)
 	ft_memset(ret, 0, count * typesize);
 	return (ret);
 }
+
+// int	set_center(t_info info, t_flag flag)
+// {
+// 	if (flag == X)
+// 	{
+// 		(WIN_W - info.width) / 2
+// 	}
+// }

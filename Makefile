@@ -19,8 +19,8 @@ $(OBJ_DIR)/%.o : %.c | $(OBJ_DIR)
 	$(CC) $(CFLAG) -c $< -o $@
 
 all : $(NAME)
-clean : 
 	 make -C $(LIB_DIR) clean
+clean : 
 	rm -rf $(OBJ_DIR)
 fclean : clean
 	make -C $(LIB_DIR) fclean

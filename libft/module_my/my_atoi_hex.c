@@ -6,11 +6,12 @@
 /*   By: seok <seok@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/28 00:25:39 by seok              #+#    #+#             */
-/*   Updated: 2023/06/28 01:43:46 by seok             ###   ########.fr       */
+/*   Updated: 2023/07/01 18:44:39 by seok             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
+#include "../../fdf.h"
 
 int	htod(char c)
 {
@@ -23,8 +24,9 @@ int	htod(char c)
 		else if ('a' <= c && c <= 'f')
 			return (c - 'a' + 10);
 		else
-			exit(EXIT_FAILURE);
+			my_error("atoi_hex");
 	}
+	return (-1);
 }
 
 int	my_atoi_hex(const char *str)
