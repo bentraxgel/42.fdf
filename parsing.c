@@ -6,7 +6,7 @@
 /*   By: seok <seok@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 21:53:31 by seok              #+#    #+#             */
-/*   Updated: 2023/07/01 15:38:33 by seok             ###   ########.fr       */
+/*   Updated: 2023/07/02 18:54:36 by seok             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,6 @@ void	parsing(t_coordinate *map, char *av, t_info *info)
 	char	**word;
 
 	h = 0;
-	printf("here");
 	fd = open(av, O_RDONLY);
 	while (get_next_line(fd, &str) == true)
 	{
@@ -76,6 +75,9 @@ void	parsing(t_coordinate *map, char *av, t_info *info)
 		free(str);
 		while (word[++i] && i < info->width)
 		{
+			// if (ft_strncmp(word[i], "\n", 2) == 0)
+			// 	printf("cmp\n") ;
+			// printf("word[%d] : %s++\n", i, word[i]);
 			map[i + (info->width * h)].x = i;
 			map[i + (info->width * h)].y = h;
 			map[i + (info->width * h)].color = COLOR;
@@ -83,7 +85,10 @@ void	parsing(t_coordinate *map, char *av, t_info *info)
 			if (map[i + (info->width * h)].z != 0)
 				map[i + (info->width * h)].color = 0xE47AE0;
 			if (info->color == true)
-				map[i + (info->width * h)].color = my_atoi_hex(word[i]);
+			{
+				// printf("word[%d] : %s++\n", i, word[i]);
+				map[i + (info->width * h)].color = my_atoi_hex(split_hex(word[i]));
+			}
 		}
 		h++;
 		if (info->width != i)
@@ -93,4 +98,55 @@ void	parsing(t_coordinate *map, char *av, t_info *info)
 		free(word[i]);
 	free(word);
 	close(fd);
+}
+
+char	*split_hex(char *str)
+{
+	char **word;
+
+	word = ft_split(str, ',');
+	return (word[1]);
+}
+
+int	htod(char c)
+{
+	if (ft_isdigit(c))
+		return (c - '0');
+	else
+	{
+		if ('A' <= c && c <= 'F')
+			return (c - 'A' + 10);
+		else if ('a' <= c && c <= 'f')
+			return (c - 'a' + 10);
+		else
+		{
+			// printf("\n%d\n", c);
+			my_error("atoi_hex");
+		}
+	}
+	return (-1);
+}
+
+int	my_atoi_hex(const char *str)
+{
+	int	result;
+	int	digit;
+	int	i;
+	int	sign;
+
+	result = 0;
+	digit = 1;
+	sign = 0;
+	if (ft_strncmp(str, "0x", 2) == 0)
+		sign = 2;
+	i = 0;
+	while (str[i] != 0 && str[i] != '\n')
+		i++;
+	while (str[--i] && i >= sign)
+	{
+		// printf("str[%d]:%s++\n", i, str);
+		result += htod(str[i]) * digit;
+		digit *= 16;
+	}
+	return (result);
 }

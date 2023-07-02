@@ -6,7 +6,7 @@
 /*   By: seok <seok@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 18:17:56 by seok              #+#    #+#             */
-/*   Updated: 2023/07/01 20:24:07 by seok             ###   ########.fr       */
+/*   Updated: 2023/07/02 18:14:47 by seok             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@ void	set_position(t_position *pos, t_coordinate *cur, t_coordinate *next);
 void	make_line(t_coordinate *cur, t_coordinate *next, t_data *image);
 
 // main.c
+char	*split_hex(char *str);
 /* 연결리스트를 사용하지 않으므로 그대들은 무덤으로 가시게
 	t_coordinate *new_coordinate(int x, int y, int z);
 	// void	add_coordinate(t_coordinate *dot, int x, int y, int z);

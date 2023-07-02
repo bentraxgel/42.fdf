@@ -17,30 +17,36 @@ int	main(int ac, char *av[])
 	map = (t_coordinate *)malloc(sizeof(t_coordinate) * (info.width * info.height));
 	parsing(map, av[1], &info);
 	
-	int	scale = 30;
+	int	scale = 1;
+	int down = 1;
 	for (int i = 0; i < info.width * info.height; i++)
 	{
 		// map[i].x *= scale;
 		// map[i].y *= scale;
-		// map[i].z *= 2;
+		// map[i].z *= down;
 
 		// map[i].x *= scale;
 		// map[i].y *= scale;
-		// map[i].z *= 5;
+		// map[i].z *= down;
 
 		map[i].x *= scale;
 		map[i].y *= scale;
-		map[i].z *= 5;
+		map[i].z *= down;
 	}
-	z_rotation(map, &info, 45);
-	x_rotation(map, &info, 30);
 	for (int i = 0; i < info.width * info.height; i++)
 	{
 		map[i].x += ((WIN_H - (info.width * scale)) / 2);
 		map[i].y += ((WIN_W - (info.width * scale)) / 2);
 	}
-	// printf("%d, %d\n", (WIN_W - (info.width * 5)), (WIN_H - (info.height * 5)));
-	// printf("%d, %d\n", ((WIN_W - (info.width * 5)) / 2), ((WIN_H - (info.height * 5)) / 2));
+	// printf("%d %d %d\n", map[0].x, map[0].y, map[0].z);
+	z_rotation(map, &info, 45);
+	// printf("%d %d %d\n", map[0].x, map[0].y, map[0].z);
+	x_rotation(map, &info, 30);
+	// printf("%d, %d\n", (WIN_W - (info.width * scale)), (WIN_H - (info.width * scale)));
+	// printf("%d, %d\n", ((WIN_W - (info.height * scale)) / 2), ((WIN_H - (info.height * scale)) / 2));
+	printf("%d %d %d\n", map[0].x, map[0].y, map[0].z);
+	printf("%d %d %d\n", map[(info.height - 1) * info.width].x, map[(info.height - 1) * info.width].y, map[(info.height - 1) * info.width].z);
+	// map[0].x = 100;
 	// z_rotation(map, &info, 45);
 	// not_z_rotation(map, &info, 45);
 	// map[10].y += 10;
@@ -62,16 +68,17 @@ int	main(int ac, char *av[])
 			make_line(&map[info.width * row + col], &map[info.width * (row + 1) + col], &image);
 	}
 	mlx_put_image_to_window(mlx_ptr, win_ptr, image.img, 0, 0);
+	// mlx_key_hook(win_ptr, keypress, )
 	mlx_loop(mlx_ptr);
-	for (int h = 0; h < info.height; h++)
-	{
-		for (int w = 0; w < w + (h * info.width); w++)
-		{
-			int	idx = w + h * info.width;
-			printf("(%d, %d, %d) ", map[idx].x, map[idx].y, map[idx].z);
-		}
-		printf("\n");
-	}
+	// for (int h = 0; h < info.height; h++)
+	// {
+	// 	for (int w = 0; w < w + (h * info.width); w++)
+	// 	{
+	// 		int	idx = w + h * info.width;
+	// 		printf("(%d, %d, %d) ", map[idx].x, map[idx].y, map[idx].z);
+	// 	}
+	// 	printf("\n");
+	// }
 	return (0);
 
 }
