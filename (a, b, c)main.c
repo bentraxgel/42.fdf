@@ -57,6 +57,7 @@ func(map, &info);
 		map[i].y *= scale;
 		map[i].z *= down;
 	}
+	z_rotation(map, &info, 45);
 	for (int i = 0; i < info.width * info.height; i++)
 	{
 		map[i].x -= (info.width  * scale / 2);
@@ -65,15 +66,14 @@ func(map, &info);
 			map[i].color = 0x00A5FF; //TODO 파란색
 	}
 
-	z_rotation(map, &info, 45);
-	x_rotation(map, &info, 30);
+	// x_rotation(map, &info, 30);
 // 	printf("map[0].x  y : %d   %d\n", map[0].x, map[0].y);
 	// int	x0 = map[0].x * -1;
 	// int y0 = map[0].y * -1;
 	// for (int i = 0; i < info.width * info.height; i++)
 	// {
-	// 	map[i].x += x0;
-	// 	map[i].y += y0;
+	// 	// map[i].x += x0;
+	// 	// map[i].y += y0;
 	// 	map[i].x += ((WIN_W - (info.width * scale)) /2);
 	// 	map[i].y += ((WIN_H - (info.width * scale)) /2);
 	// }
@@ -82,7 +82,7 @@ func(map, &info);
 		map[i].x += (WIN_W / 2);
 		map[i].y += (WIN_H / 2);
 	}
-// 	// z_rotation(map, &info, 45);
+	// z_rotation(map, &info, 45);
 // 	// x_rotation(map, &info, 30);
 
 // func(map, &info);

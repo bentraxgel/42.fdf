@@ -6,7 +6,7 @@
 /*   By: seok <seok@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 18:17:56 by seok              #+#    #+#             */
-/*   Updated: 2023/07/02 18:14:47 by seok             ###   ########.fr       */
+/*   Updated: 2023/07/03 17:26:40 by seok             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 
 #define COLOR 0xFFFFFF
 #define	RAD	3.1415926 / 180
-#define	DEGREE 15
+#define	DEGREE 15 //TODO 현재 매개변수deg로 변경했음 - 고민중
 #define	WIN_W	1200
 #define WIN_H	1100
 

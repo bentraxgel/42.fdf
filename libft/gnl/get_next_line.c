@@ -6,7 +6,7 @@
 /*   By: seok <seok@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 03:18:32 by quesera           #+#    #+#             */
-/*   Updated: 2023/06/28 03:41:52 by seok             ###   ########.fr       */
+/*   Updated: 2023/07/04 16:59:48 by seok             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,7 +128,7 @@ int	get_next_line(int fd, char **ret)
 	{
 		free(head);
 		head = NULL;
-		if (ret)
+		if (*ret == NULL)
 			return (false);
 	}
 	return (true);
