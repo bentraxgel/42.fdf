@@ -6,7 +6,7 @@
 /*   By: seok <seok@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 18:17:56 by seok              #+#    #+#             */
-/*   Updated: 2023/07/03 17:26:40 by seok             ###   ########.fr       */
+/*   Updated: 2023/07/07 08:34:13 by seok             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,32 @@ typedef enum e_flag
 {
 	X = 0,
 	Y,
+	ON_KEYDOWN,
+	ON_KEYUP, //필요없지않나?
+	ON_MOUSEDOWN,
+	ON_MOUSEUP,
+	ON_MOUSEMOVE,
+	ON_DESTROY = 17
 }t_flag;
+
+typedef enum e_key
+{
+	ESC = 53,
+	X_KEY = 7,
+	Y_KEY = 16,
+	Z_KEY = 6,
+	H_KEY = 4,
+	I_KEY = 34,
+	O_KEY = 31,
+	BENT_KEY = 33,
+	LINE_KEY = 31,
+	ONE_KEY = 18,
+	TWO_KEY = 19,
+	LEFT_KEY = 123,
+	RIGHT_KEY,
+	DOWN_KEY,
+	UP_KEY
+}t_key;
 
 typedef struct s_position
 {
@@ -41,6 +66,7 @@ typedef struct s_position
 	int add_y;
 	int	dx;
 	int	dy;
+	int	p;
 }t_position;
 
 typedef struct s_coordinate
@@ -53,11 +79,11 @@ typedef struct s_coordinate
 
 typedef struct s_info
 {
-	t_coordinate *head;
-	t_coordinate *tail;
 	int	width;
 	int	height;
 	int	color;
+	int	scale;
+	int	high;
 }t_info;
 
 typedef struct s_data
@@ -69,15 +95,31 @@ typedef struct s_data
 	int		endian;
 }t_data;
 
+typedef struct s_vars
+{
+	void			*mlx;
+	void			*win;
+	t_coordinate	*map;
+	t_coordinate	*orimap;
+	t_data			image;
+	t_info			info;
+}t_vars;
+
 // my_mlx.c
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
 
-// make_line.c
+// make_line.c -norm
 void	set_position(t_position *pos, t_coordinate *cur, t_coordinate *next);
 void	make_line(t_coordinate *cur, t_coordinate *next, t_data *image);
+void	make_line1(t_position *pos, t_coordinate *cur, t_coordinate *next,t_data *image);
+void	make_line2(t_position *pos, int color, t_data *image);
+void	make_line3(t_position *pos, int color, t_data *image);
 
 // main.c
 char	*split_hex(char *str);
+int	key_hook(int keycode, t_vars *vars);
+int	mouse_hook(int button, int x, int y, t_vars *vars);
+int	close_window(t_vars *vars);
 /* 연결리스트를 사용하지 않으므로 그대들은 무덤으로 가시게
 	t_coordinate *new_coordinate(int x, int y, int z);
 	// void	add_coordinate(t_coordinate *dot, int x, int y, int z);
@@ -88,12 +130,24 @@ char	*split_hex(char *str);
 // main_utill.c
 int	my_error(char *err);
 void	*alloc_guard(size_t typesize, size_t count);
+void	copy_ori(t_vars *vars, t_info *info);
 
 // parsing.c
-void	parsing(t_coordinate *map, char *av, t_info *info);
+void	is_color(char *str, t_info *info);
 void	cnt_height(char *av, t_info *info);
 void	cnt_width(char *av, t_info *info);
-void	is_color(char *str, t_info *info);
+void	parsing(t_vars *vars, char *av, t_info *info);
+int		input_coordinates(char **word, t_info *info, t_vars *vars, int h);
+
+// init.c
+void	init_mlx(t_vars *vars, t_data *image);
+void	init_hook(t_vars *vars);
+
+// map_vis.c
+void	set_map_scale(t_vars *vars, t_info *info);
+void	set_map_center(t_vars *vars, t_info *info);
+void	set_window_center(t_vars *vars, t_info *info);
+void	draw_map(t_vars *vars, t_info *info, t_data *image);
 
 // rotation_matrix.c
 int near_int(double n);
@@ -101,5 +155,10 @@ void	x_rotation(t_coordinate *map, t_info *info, int deg);
 void	y_rotation(t_coordinate *map, t_info *info, int deg);
 void	z_rotation(t_coordinate *map, t_info *info, int deg);
 void	not_z_rotation(t_coordinate *map, t_info *info, int deg);
+
+// hook.c
+int	mouse_hook(int button, int x, int y, t_vars *vars);
+int	mouse_hook(int button, int x, int y, t_vars *vars);
+int	close_window(t_vars *vars);
 
 #endif

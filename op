@@ -1,22 +1,251 @@
-250, 150
-325, 275
-TEST
-[0] (-9, -5, 0) (-8, -5, 0) (-7, -5, 0) (-6, -5, 0) (-5, -5, 0) (-4, -5, 0) (-3, -5, 0) (-2, -5, 0) (-1, -5, 0) (0, -5, 0) (1, -5, 0) (2, -5, 0) (3, -5, 0) (4, -5, 0) (5, -5, 0) (6, -5, 0) (7, -5, 0) (8, -5, 0) (9, -5, 0) 
-[1] (-9, -4, 0) (-8, -4, 0) (-7, -4, 0) (-6, -4, 0) (-5, -4, 0) (-4, -4, 0) (-3, -4, 0) (-2, -4, 0) (-1, -4, 0) (0, -4, 0) (1, -4, 0) (2, -4, 0) (3, -4, 0) (4, -4, 0) (5, -4, 0) (6, -4, 0) (7, -4, 0) (8, -4, 0) (9, -4, 0) 
-[2] (-9, -3, 0) (-8, -3, 0) (-7, -3, 10) (-6, -3, 10) (-5, -3, 0) (-4, -3, 0) (-3, -3, 10) (-2, -3, 10) (-1, -3, 0) (0, -3, 0) (1, -3, 0) (2, -3, 10) (3, -3, 10) (4, -3, 10) (5, -3, 10) (6, -3, 10) (7, -3, 0) (8, -3, 0) (9, -3, 0) 
-[3] (-9, -2, 0) (-8, -2, 0) (-7, -2, 10) (-6, -2, 10) (-5, -2, 0) (-4, -2, 0) (-3, -2, 10) (-2, -2, 10) (-1, -2, 0) (0, -2, 0) (1, -2, 0) (2, -2, 0) (3, -2, 0) (4, -2, 0) (5, -2, 0) (6, -2, 10) (7, -2, 10) (8, -2, 0) (9, -2, 0) 
-[4] (-9, -1, 0) (-8, -1, 0) (-7, -1, 10) (-6, -1, 10) (-5, -1, 0) (-4, -1, 0) (-3, -1, 10) (-2, -1, 10) (-1, -1, 0) (0, -1, 0) (1, -1, 0) (2, -1, 0) (3, -1, 0) (4, -1, 0) (5, -1, 0) (6, -1, 10) (7, -1, 10) (8, -1, 0) (9, -1, 0) 
-[5] (-9, 0, 0) (-8, 0, 0) (-7, 0, 10) (-6, 0, 10) (-5, 0, 10) (-4, 0, 10) (-3, 0, 10) (-2, 0, 10) (-1, 0, 0) (0, 0, 0) (1, 0, 0) (2, 0, 0) (3, 0, 10) (4, 0, 10) (5, 0, 10) (6, 0, 10) (7, 0, 0) (8, 0, 0) (9, 0, 0) 
-[6] (-9, 1, 0) (-8, 1, 0) (-7, 1, 0) (-6, 1, 10) (-5, 1, 10) (-4, 1, 10) (-3, 1, 10) (-2, 1, 10) (-1, 1, 0) (0, 1, 0) (1, 1, 0) (2, 1, 10) (3, 1, 10) (4, 1, 0) (5, 1, 0) (6, 1, 0) (7, 1, 0) (8, 1, 0) (9, 1, 0) 
-[7] (-9, 2, 0) (-8, 2, 0) (-7, 2, 0) (-6, 2, 0) (-5, 2, 0) (-4, 2, 0) (-3, 2, 10) (-2, 2, 10) (-1, 2, 0) (0, 2, 0) (1, 2, 0) (2, 2, 10) (3, 2, 10) (4, 2, 0) (5, 2, 0) (6, 2, 0) (7, 2, 0) (8, 2, 0) (9, 2, 0) 
-[8] (-9, 3, 0) (-8, 3, 0) (-7, 3, 0) (-6, 3, 0) (-5, 3, 0) (-4, 3, 0) (-3, 3, 10) (-2, 3, 10) (-1, 3, 0) (0, 3, 0) (1, 3, 0) (2, 3, 10) (3, 3, 10) (4, 3, 10) (5, 3, 10) (6, 3, 10) (7, 3, 10) (8, 3, 0) (9, 3, 0) 
-[9] (-9, 4, 0) (-8, 4, 0) (-7, 4, 0) (-6, 4, 0) (-5, 4, 0) (-4, 4, 0) (-3, 4, 0) (-2, 4, 0) (-1, 4, 0) (0, 4, 0) (1, 4, 0) (2, 4, 0) (3, 4, 0) (4, 4, 0) (5, 4, 0) (6, 4, 0) (7, 4, 0) (8, 4, 0) (9, 4, 0) 
-[10] (-9, 5, 0) (-8, 5, 0) (-7, 5, 0) (-6, 5, 0) (-5, 5, 0) (-4, 5, 0) (-3, 5, 0) (-2, 5, 0) (-1, 5, 0) (0, 5, 0) (1, 5, 0) (2, 5, 0) (3, 5, 0) (4, 5, 0) (5, 5, 0) (6, 5, 0) (7, 5, 0) (8, 5, 0) (9, 5, 0) 
-map[0].x  y : -450   -250
-TEST
-[0] (125, 75, 0) (175, 75, 0) (225, 75, 0) (275, 75, 0) (325, 75, 0) (375, 75, 0) (425, 75, 0) (475, 75, 0) (525, 75, 0) (575, 75, 0) (625, 75, 0) (675, 75, 0) (725, 75, 0) (775, 75, 0) (825, 75, 0) (875, 75, 0) (925, 75, 0) (975, 75, 0) (1025, 75, 0) 
-[1] (125, 125, 0) (175, 125, 0) (225, 125, 0) (275, 125, 0) (325, 125, 0) (375, 125, 0) (425, 125, 0) (475, 125, 0) (525, 125, 0) (575, 125, 0) (625, 125, 0) (675, 125, 0) (725, 125, 0) (775, 125, 0) (825, 125, 0) (875, 125, 0) (925, 125, 0) (975, 125, 0) (1025, 125, 0) 
-[2] (125, 175, 0) (175, 175, 0) (225, 175, 300) (275, 175, 300) (325, 175, 0) (375, 175, 0) (425, 175, 300) (475, 175, 300) (525, 175, 0) (575, 175, 0) (625, 175, 0) (675, 175, 300) (725, 175, 300) (775, 175, 300) (825, 175, 300) (875, 175, 300) (925, 175, 0) (975, 175, 0) (1025, 175, 0) 
-[3] (125, 225, 0) (175, 225, 0) (225, 225, 300) (275, 225, 300) (325, 225, 0) (375, 225, 0) (425, 225, 300) (475, 225, 300) (525, 225, 0) (575, 225, 0) (625, 225, 0) (675, 225, 0) (725, 225, 0) (775, 225, 0) (825, 225, 0) (875, 225, 300) (925, 225, 300) (975, 225, 0) (1025, 225, 0) 
-[4] (125, 275, 0) (175, 275, 0) (225, 275, 300) (275, 275, 300) (325, 275, 0) (375, 275, 0) (425, 275, 300) (475, 275, 300) (525, 275, 0) (575, 275, 0) (625, 275, 0) (675, 275, 0) (725, 275, 0) (775, 275, 0) (825, 275, 0) (875, 275, 300) (925, 275, 300) (975, 275, 0) (1025, 275, 0) 
-[5] (125, 325, 0) (175, 325, 0) (225, 325, 300) (275, 325, 300) (325, 325, 300) (375, 325, 300) (425, 325, 300) (475, 325, 300) (525, 325, 0) (575, 325, 0) (625, 325, 0) (675, 325, 0) (725, 325, 300) (775, 325, 300) (825, 325, 300) (875, 325, 300) (925, 325, 0) (975, 3
+Process:         fdf [3625]
+Path:            /Volumes/VOLUME/*/fdf
+Load Address:    0x106200000
+Identifier:      fdf
+Version:         ???
+Code Type:       X86-64
+Parent Process:  zsh [1586]
+
+Date/Time:       2023-07-07 05:25:01.237 +0900
+Launch Time:     2023-07-07 05:24:59.301 +0900
+OS Version:      Mac OS X 10.15.7 (19H2026)
+Report Version:  7
+Analysis Tool:   /Applications/Xcode.app/Contents/Developer/usr/bin/leaks
+Analysis Tool Version:  Xcode 12.3 (12C33)
+
+Physical footprint:         28.7M
+Physical footprint (peak):  40.5M
+----
+
+leaks Report Version: 4.0
+Process 3625: 21771 nodes malloced for 15104 KB
+Process 3625: 213 leaks for 5376 total leaked bytes.
+
+    213 (5.25K) << TOTAL >>
+
+      20 (464 bytes) ROOT LEAK: 0x7fd102c0ebe0 [160]
+         1 (16 bytes) 0x7fd102c040e0 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0a870 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0acd0 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0b660 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0bac0 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0cac0 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0d570 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0e500 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0e510 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0e520 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0e590 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0e5a0 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0e6f0 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0ec80 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0ec90 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0eca0 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0ecb0 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0ecc0 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0ecd0 [16]  length: 2  "0"
+
+      20 (464 bytes) ROOT LEAK: 0x7fd102c0ece0 [160]
+         1 (16 bytes) 0x7fd102c0eae0 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0eaf0 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0ed80 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0ed90 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0eda0 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0edb0 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0edc0 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0edd0 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0ede0 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0edf0 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0ee00 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0ee10 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0ee20 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0ee30 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0ee40 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0ee50 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0ee60 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0ee70 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0ee80 [16]  length: 2  "0"
+
+      20 (464 bytes) ROOT LEAK: 0x7fd102c0ee90 [160]
+         1 (16 bytes) 0x7fd102c0eb80 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0ebd0 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0ef30 [16]  length: 2  "10"
+         1 (16 bytes) 0x7fd102c0ef40 [16]  length: 2  "10"
+         1 (16 bytes) 0x7fd102c0ef50 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0ef60 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0ef70 [16]  length: 2  "10"
+         1 (16 bytes) 0x7fd102c0ef80 [16]  length: 2  "10"
+         1 (16 bytes) 0x7fd102c0ef90 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0efa0 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0efb0 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0efc0 [16]  length: 2  "10"
+         1 (16 bytes) 0x7fd102c0efd0 [16]  length: 2  "10"
+         1 (16 bytes) 0x7fd102c0efe0 [16]  length: 2  "10"
+         1 (16 bytes) 0x7fd102c0eff0 [16]  length: 2  "10"
+         1 (16 bytes) 0x7fd102c0f000 [16]  length: 2  "10"
+         1 (16 bytes) 0x7fd102c0f010 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0f020 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0f030 [16]  length: 2  "0"
+
+      20 (464 bytes) ROOT LEAK: 0x7fd102c0f0c0 [160]
+         1 (16 bytes) 0x7fd102c0eb90 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0eba0 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0ebb0 [16]  length: 2  "10"
+         1 (16 bytes) 0x7fd102c0ebc0 [16]  length: 2  "10"
+         1 (16 bytes) 0x7fd102c0f160 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0f170 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0f180 [16]  length: 2  "10"
+         1 (16 bytes) 0x7fd102c0f190 [16]  length: 2  "10"
+         1 (16 bytes) 0x7fd102c0f1a0 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0f1b0 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0f1c0 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0f1d0 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0f1e0 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0f1f0 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0f200 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0f210 [16]  length: 2  "10"
+         1 (16 bytes) 0x7fd102c0f220 [16]  length: 2  "10"
+         1 (16 bytes) 0x7fd102c0f230 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0f240 [16]  length: 2  "0"
+
+      20 (464 bytes) ROOT LEAK: 0x7fd102c0f250 [160]
+         1 (16 bytes) 0x7fd102c0f0a0 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0f0b0 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0f2f0 [16]  length: 2  "10"
+         1 (16 bytes) 0x7fd102c0f300 [16]  length: 2  "10"
+         1 (16 bytes) 0x7fd102c0f310 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0f320 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0f330 [16]  length: 2  "10"
+         1 (16 bytes) 0x7fd102c0f340 [16]  length: 2  "10"
+         1 (16 bytes) 0x7fd102c0f350 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0f360 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0f370 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0f380 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0f390 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0f3a0 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0f3b0 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0f3c0 [16]  length: 2  "10"
+         1 (16 bytes) 0x7fd102c0f3d0 [16]  length: 2  "10"
+         1 (16 bytes) 0x7fd102c0f3e0 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0f3f0 [16]  length: 2  "0"
+
+      20 (464 bytes) ROOT LEAK: 0x7fd102c0f400 [160]
+         1 (16 bytes) 0x7fd102c0f080 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0f090 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0f4a0 [16]  length: 2  "10"
+         1 (16 bytes) 0x7fd102c0f4b0 [16]  length: 2  "10"
+         1 (16 bytes) 0x7fd102c0f4c0 [16]  length: 2  "10"
+         1 (16 bytes) 0x7fd102c0f4d0 [16]  length: 2  "10"
+         1 (16 bytes) 0x7fd102c0f4e0 [16]  length: 2  "10"
+         1 (16 bytes) 0x7fd102c0f4f0 [16]  length: 2  "10"
+         1 (16 bytes) 0x7fd102c0f500 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0f510 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0f520 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0f530 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0f540 [16]  length: 2  "10"
+         1 (16 bytes) 0x7fd102c0f550 [16]  length: 2  "10"
+         1 (16 bytes) 0x7fd102c0f560 [16]  length: 2  "10"
+         1 (16 bytes) 0x7fd102c0f570 [16]  length: 2  "10"
+         1 (16 bytes) 0x7fd102c0f580 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0f590 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0f5a0 [16]  length: 2  "0"
+
+      20 (464 bytes) ROOT LEAK: 0x7fd102c0f630 [160]
+         1 (16 bytes) 0x7fd102c0eb40 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0eb50 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0eb60 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0eb70 [16]  length: 2  "10"
+         1 (16 bytes) 0x7fd102c0f6d0 [16]  length: 2  "10"
+         1 (16 bytes) 0x7fd102c0f6e0 [16]  length: 2  "10"
+         1 (16 bytes) 0x7fd102c0f6f0 [16]  length: 2  "10"
+         1 (16 bytes) 0x7fd102c0f700 [16]  length: 2  "10"
+         1 (16 bytes) 0x7fd102c0f710 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0f720 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0f730 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0f740 [16]  length: 2  "10"
+         1 (16 bytes) 0x7fd102c0f750 [16]  length: 2  "10"
+         1 (16 bytes) 0x7fd102c0f760 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0f770 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0f780 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0f790 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0f7a0 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0f7b0 [16]  length: 2  "0"
+
+      20 (464 bytes) ROOT LEAK: 0x7fd102c0f7c0 [160]
+         1 (16 bytes) 0x7fd102c0f610 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0f620 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0f860 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0f870 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0f880 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0f890 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0f8a0 [16]  length: 2  "10"
+         1 (16 bytes) 0x7fd102c0f8b0 [16]  length: 2  "10"
+         1 (16 bytes) 0x7fd102c0f8c0 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0f8d0 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0f8e0 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0f8f0 [16]  length: 2  "10"
+         1 (16 bytes) 0x7fd102c0f900 [16]  length: 2  "10"
+         1 (16 bytes) 0x7fd102c0f910 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0f920 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0f930 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0f940 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0f950 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0f960 [16]  length: 2  "0"
+
+      20 (464 bytes) ROOT LEAK: 0x7fd102c0f970 [160]
+         1 (16 bytes) 0x7fd102c0f5f0 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0f600 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0fa10 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0fa20 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0fa30 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0fa40 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0fa50 [16]  length: 2  "10"
+         1 (16 bytes) 0x7fd102c0fa60 [16]  length: 2  "10"
+         1 (16 bytes) 0x7fd102c0fa70 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0fa80 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0fa90 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0faa0 [16]  length: 2  "10"
+         1 (16 bytes) 0x7fd102c0fab0 [16]  length: 2  "10"
+         1 (16 bytes) 0x7fd102c0fac0 [16]  length: 2  "10"
+         1 (16 bytes) 0x7fd102c0fad0 [16]  length: 2  "10"
+         1 (16 bytes) 0x7fd102c0fae0 [16]  length: 2  "10"
+         1 (16 bytes) 0x7fd102c0faf0 [16]  length: 2  "10"
+         1 (16 bytes) 0x7fd102c0fb00 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0fb10 [16]  length: 2  "0"
+
+      20 (464 bytes) ROOT LEAK: 0x7fd102c0fba0 [160]
+         1 (16 bytes) 0x7fd102c0f040 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0f050 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0f060 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0f070 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0fc40 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0fc50 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0fc60 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0fc70 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0fc80 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0fc90 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0fca0 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0fcb0 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0fcc0 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0fcd0 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0fce0 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0fcf0 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0fd00 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0fd10 [16]  length: 1  "0"
+         1 (16 bytes) 0x7fd102c0fd20 [16]  length: 2  "0"
+
+      1 (64 bytes) ROOT LEAK: 0x7fd102c0e550 [64]  length: 56  "0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0"
+      1 (64 bytes) ROOT LEAK: 0x7fd102c0e5b0 [64]  length: 56  "0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0"
+      1 (64 bytes) ROOT LEAK: 0x7fd102c0e5f0 [64]  length: 56  "0  0 10 10  0  0 10 10  0  0  0 10 10 10 10 10  0  0  0"
+      1 (64 bytes) ROOT LEAK: 0x7fd102c0e630 [64]  length: 56  "0  0 10 10  0  0 10 10  0  0  0  0  0  0  0 10 10  0  0"
+      1 (64 bytes) ROOT LEAK: 0x7fd102c0e670 [64]  length: 56  "0  0 10 10  0  0 10 10  0  0  0  0  0  0  0 10 10  0  0"
+      1 (64 bytes) ROOT LEAK: 0x7fd102c0e6b0 [64]  length: 56  "0  0  0 10 10 10 10 10  0  0  0 10 10  0  0  0  0  0  0"
+      1 (64 bytes) ROOT LEAK: 0x7fd102c0e9e0 [64]  length: 56  "0  0 10 10 10 10 10 10  0  0  0  0 10 10 10 10  0  0  0"
+      1 (64 bytes) ROOT LEAK: 0x7fd102c0ea20 [64]  length: 56  "0  0  0  0  0  0 10 10  0  0  0 10 10  0  0  0  0  0  0"
+      1 (64 bytes) ROOT LEAK: 0x7fd102c0ea60 [64]  length: 56  "0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0"
+      1 (64 bytes) ROOT LEAK: 0x7fd102c0eaa0 [64]  length: 56  "0  0  0  0  0  0 10 10  0  0  0 10 10 10 10 10 10  0  0"
+      1 (64 bytes) ROOT LEAK: 0x7fd102c0eb00 [64]  length: 56  "0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0"
+
+      2 (32 bytes) ROOT LEAK: 0x7fd102c0e530 [16]
+         1 (16 bytes) 0x7fd102c0e540 [16]  length: 1  "0"
+
+53
