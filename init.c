@@ -6,19 +6,19 @@
 /*   By: seok <seok@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 06:01:15 by seok              #+#    #+#             */
-/*   Updated: 2023/07/07 06:07:16 by seok             ###   ########.fr       */
+/*   Updated: 2023/07/07 08:44:07 by seok             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include "fdf.h"
 
-void	init_mlx(t_vars *vars, t_data *image)
+void	init_mlx(t_vars *vars)
 {
 	vars->mlx = mlx_init();
 	vars->win = mlx_new_window(vars->mlx, WIN_W, WIN_H, "Hellow World!");
-	image->img = mlx_new_image(vars->mlx, WIN_W, WIN_H);
-	image->addr = mlx_get_data_addr(image->img, &image->bits_per_pixel, &image->line_length, &image->endian);
+	vars->image.img = mlx_new_image(vars->mlx, WIN_W, WIN_H);
+	vars->image.addr = mlx_get_data_addr(vars->image.img, &vars->image.bits_per_pixel, &vars->image.line_length, &vars->image.endian);
 }
 
 void	init_hook(t_vars *vars)

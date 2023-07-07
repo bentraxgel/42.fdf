@@ -11,7 +11,7 @@ GNL_DIR = gnl/
 GNL_SRC = $(addprefix $(GNL_DIR), \
 			get_next_line.c get_next_line_utill.c)
 SRCS = $(MOD_SRC) $(GNL_SRC) \
-		ft_isalpha.c\
+		ft_isalpha.c ft_isspace.c \
 			ft_isdigit.c\
 			ft_isalnum.c\
 			ft_isascii.c\

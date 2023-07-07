@@ -6,7 +6,7 @@
 /*   By: seok <seok@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 00:17:39 by quesera           #+#    #+#             */
-/*   Updated: 2023/07/07 07:49:49 by seok             ###   ########.fr       */
+/*   Updated: 2023/07/07 17:09:43 by seok             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,21 +38,12 @@ void	*alloc_guard(size_t typesize, size_t count)
 	return (ret);
 }
 
-// int	set_center(t_info info, t_flag flag)
-// {
-// 	if (flag == X)
-// 	{
-// 		(WIN_W - info.width) / 2
-// 	}
-// }
-
-void	copy_ori(t_vars *vars, t_info *info)
+void	copy_ori(t_vars *vars)
 {
 	int	i;
 
 	i = -1;
-	vars->map = malloc(sizeof(t_coordinate) * info->width * info->height);
-	while (++i < info->width * info->height)
+	while (++i < vars->info.width * vars->info.height)
 	{
 		vars->map[i].x = vars->orimap[i].x;
 		vars->map[i].y = vars->orimap[i].y;

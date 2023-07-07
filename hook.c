@@ -6,7 +6,7 @@
 /*   By: seok <seok@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 07:10:46 by seok              #+#    #+#             */
-/*   Updated: 2023/07/07 08:34:28 by seok             ###   ########.fr       */
+/*   Updated: 2023/07/07 19:51:06 by seok             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,19 +28,111 @@ int	key_hook(int keycode, t_vars *vars)
 		free(vars->map);
 		exit(0);
 	}
-	// else if (LEFT_KEY <= keycode <= UP_KEY)
-	// 	arrow_keys(keycode, vars, info, image);
-// 	else if (keycode == X_KEY)
-// 		x_rotation(rotate())
-
+	else if (keycode == X_KEY || keycode == Y_KEY || keycode == Z_KEY)
+		handle_rot(keycode, vars);
+	else if (keycode == H_KEY || keycode == G_KEY)
+		handle_high(keycode, vars);	
+	else if (keycode == I_KEY || keycode == O_KEY)
+		handle_zoom(keycode, vars);
+	else if (keycode == ONE_KEY || keycode == TWO_KEY || \
+				(LEFT_KEY <= keycode && keycode <= UP_KEY))
+		arrow_keys(keycode, vars);
 	return (0);
 }
 
-// void	arrow_keys(int keycode, t_vars *vars, t_info *info, t_data *image)
+// void	handle_high(int keycode, t_vars *vars)
 // {
-// 	if (keycode == LEFT_KEY)
-// 		move_x(vars, info, image);
+// 	int	i;
+
+// 	i = -1;
+// 	if (keycode == H_KEY)
+// 	{
+// 		while (++i < vars->info.width * vars->info.height)
+// 		{
+// 			vars->map[i].z += 0.1;
+// 			// z_rotation(vars, 1);
+// 			x_rotation(vars, 1);
+// 		}
+// 		clear_img(vars);
+// 		draw_map(vars, vars->map);
+// 		mlx_put_image_to_window(vars->mlx, vars->win, vars->image.img, 0, 0);
+// 	}
+// 	else if (keycode == G_KEY)
+// 	{
+// 		while (++i < vars->info.width * vars->info.height)
+// 			vars->map[i].z *= 0.9;
+// 		clear_img(vars);
+// 		draw_map(vars, vars->map);
+// 		mlx_put_image_to_window(vars->mlx, vars->win, vars->image.img, 0, 0);
+// 	}
 // }
+
+void	handle_rot(int keycode, t_vars *vars)
+{
+	if (keycode == X_KEY)
+	{
+		x_rotation(vars, 5);
+		clear_img(vars);
+		draw_map(vars, vars->map);
+		mlx_put_image_to_window(vars->mlx, vars->win, vars->image.img, 0, 0);
+	}
+	else if (keycode == Y_KEY)
+	{
+		y_rotation(vars, 5);
+		clear_img(vars);
+		draw_map(vars, vars->map);
+		mlx_put_image_to_window(vars->mlx, vars->win, vars->image.img, 0, 0);
+	}
+	else if (keycode == Z_KEY)
+	{
+		z_rotation(vars, 5);
+		clear_img(vars);
+		draw_map(vars, vars->map);
+		mlx_put_image_to_window(vars->mlx, vars->win, vars->image.img, 0, 0);
+	}
+}
+
+void	handle_zoom(int keycode, t_vars *vars)
+{
+	int	i;
+
+	i = -1;
+	if (keycode == I_KEY)
+	{
+		while (++i < vars->info.width * vars->info.height)
+		{
+			vars->map[i].x *= 1.1;
+			vars->map[i].y *= 1.1;
+			vars->map[i].z *= 1.01;
+		}
+	}
+	else
+	{
+		while (++i < vars->info.width * vars->info.height)
+		{
+			vars->map[i].x *= 0.9;
+			vars->map[i].y *= 0.9;
+			vars->map[i].z *= 0.09;
+		}
+	}
+	clear_img(vars);
+	draw_map(vars, vars->map);
+	mlx_put_image_to_window(vars->mlx, vars->win, vars->image.img, 0, 0);
+}
+
+void	arrow_keys(int keycode, t_vars *vars)
+{
+	if (keycode == ONE_KEY || keycode == TWO_KEY)
+		view_map(vars, keycode);
+	else if (keycode == LEFT_KEY)
+		move_x(vars, keycode);
+	else if (keycode == RIGHT_KEY)
+		move_x(vars, keycode);
+	else if (keycode == DOWN_KEY)
+		move_y(vars, keycode);
+	else if (keycode == UP_KEY)
+		move_y(vars, keycode);
+}
 
 int	close_window(t_vars *vars)
 {

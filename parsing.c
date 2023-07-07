@@ -6,24 +6,31 @@
 /*   By: seok <seok@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 21:53:31 by seok              #+#    #+#             */
-/*   Updated: 2023/07/07 07:50:54 by seok             ###   ########.fr       */
+/*   Updated: 2023/07/07 18:22:28 by seok             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void	is_color(char *str, t_info *info)
+void	is_color(char *str, t_vars *vars)
 {
 	char	**word;
+	int		i;
 
+	i = 0;
 	word = ft_split(str, ',');
 	if (ft_strncmp(word[1], "0x", 2) == 0)
-		info->color = true;
+		vars->info.color = true;
 	else
-		info->color = false;
+		vars->info.color = false;
+	while (word[i])
+		i++;
+	while (i-- > 0)
+		free(word[i]);
+	free(word);
 }
 
-void	cnt_width(char *av, t_info *info)
+void	cnt_width(char *av, t_vars *vars)
 {
 	int		fd;
 	int		i;
@@ -36,10 +43,10 @@ void	cnt_width(char *av, t_info *info)
 	{
 		word = ft_split(str, ' ');
 		free(str);
-		is_color(word[0], info);
+		is_color(word[0], vars);
 		while (word[i])
 			i++;
-		info->width = i;
+		vars->info.width = i;
 		while (i-- > 0)
 			free(word[i]);
 		free(word);
@@ -49,19 +56,22 @@ void	cnt_width(char *av, t_info *info)
 	close(fd);
 }
 
-void	cnt_height(char *av, t_info *info)
+void	cnt_height(char *av, t_vars *vars)
 {
 	int		fd;
 	char	*str;
 
-	info->height = 0;
+	vars->info.height = 0;
 	fd = open(av, O_RDONLY);
 	while (get_next_line(fd, &str) == true)
-		info->height++;
+	{
+		vars->info.height++;
+		free(str);
+	}
 	close(fd);
 }
 
-void	parsing(t_vars *vars, char *av, t_info *info)
+void	parsing(t_vars *vars, char *av)
 {
 	int		fd;
 	int		i;
@@ -71,15 +81,15 @@ void	parsing(t_vars *vars, char *av, t_info *info)
 
 	h = 0;
 	fd = open(av, O_RDONLY);
-	if (fd < 0)
+	if (fd < 0) //TODO open오류일경우 ㅣ어디에 둘까..
 		my_error("file descriptor");
 	while (get_next_line(fd, &str) == true)
 	{
 		word = ft_split(str, ' ');
 		free(str);
-		i = input_coordinates(word, info, vars, h);
+		i = input_coordinates(word, vars, h);
 		h++;
-		if (info->width != i)
+		if (vars->info.width != i)
 			my_error("different width length");
 	}
 	while (i-- > 0)
@@ -88,21 +98,22 @@ void	parsing(t_vars *vars, char *av, t_info *info)
 	close(fd);
 }
 
-int	input_coordinates(char **word, t_info *info, t_vars *vars, int h)
+int	input_coordinates(char **word, t_vars *vars, int h)
 {
 	int	i;
 
 	i = -1;
-	while (word[++i] && i < info->width)
+	while (word[++i] && i < vars->info.width)
 	{
-		vars->orimap[i + (info->width * h)].x = i;
-		vars->orimap[i + (info->width * h)].y = h;
-		vars->orimap[i + (info->width * h)].color = COLOR;
-		vars->orimap[i + (info->width * h)].z = ft_atoi(word[i]);
-		if (vars->orimap[i + (info->width * h)].z != 0)
-			vars->orimap[i + (info->width * h)].color = 0x00E47AE0;
-		if (info->color == true)
-			vars->orimap[i + (info->width * h)].color = my_atoi_hex(split_hex(word[i]));
+		vars->orimap[i + (vars->info.width * h)].x = i;
+		vars->orimap[i + (vars->info.width * h)].y = h;
+		vars->orimap[i + (vars->info.width * h)].color = COLOR;
+		vars->orimap[i + (vars->info.width * h)].z = ft_atoi(word[i]);
+		if (vars->orimap[i + (vars->info.width * h)].z != 0)
+			vars->orimap[i + (vars->info.width * h)].color = 0x00E47AE0;
+		if (vars->info.color == true)
+			vars->orimap[i + (vars->info.width * h)].color \
+				= my_atoi_hex(split_hex(word[i]));
 	}
 	return (i);
 }

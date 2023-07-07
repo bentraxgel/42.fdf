@@ -10,10 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isspace(int c)
-{
-	return (c == 32 || (8 < c && c < 14));
-}
+#include "libft.h"
 
 int	ft_atoi(const char *str)
 {
@@ -24,9 +21,6 @@ int	ft_atoi(const char *str)
 	result = 0;
 	while (ft_isspace(*str))
 		str++;
-	//TODO atoipro로 만들어~줘
-	// my_data
-	// my_check_digit
 	if (*str == '-' || *str == '+')
 	{
 		if (*str == '-')

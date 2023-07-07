@@ -1,23 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   my_mlx.c                                           :+:      :+:    :+:   */
+/*   ft_isspace.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: seok <seok@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/15 20:56:14 by seok              #+#    #+#             */
-/*   Updated: 2023/07/07 13:52:46 by seok             ###   ########.fr       */
+/*   Created: 2023/07/07 17:47:18 by seok              #+#    #+#             */
+/*   Updated: 2023/07/07 17:49:32 by seok             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
-
-void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
+int	ft_isspace(int c)
 {
-	char	*dst;
-
-	if (x < 0 || y < 0 || y >= WIN_H || x >= WIN_W)
-		return ;
-	dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
-	*(unsigned int*)dst = color;
+	return (c == 32 || (8 < c && c < 14));
 }

@@ -6,11 +6,12 @@
 /*   By: seok <seok@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 03:18:32 by quesera           #+#    #+#             */
-/*   Updated: 2023/07/04 16:59:48 by seok             ###   ########.fr       */
+/*   Updated: 2023/07/07 18:21:55 by seok             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+#include "../../fdf.h"
 
 t_lst	*my_lst_make(t_lst **head)
 {
@@ -109,6 +110,8 @@ int	get_next_line(int fd, char **ret)
 	static t_lst	*head;
 	t_lst			*find;
 
+	if (fd < 0) //TODO open오류일경우에 대한것 어디에 둘건지 생각.
+		my_error("file descriptor");
 	if (BUFFER_SIZE <= 0 || read(fd, NULL, 0) < 0)
 	{
 		find = head;

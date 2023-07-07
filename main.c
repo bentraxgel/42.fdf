@@ -25,30 +25,26 @@ void	leaks()
 int	main(int ac, char *av[])
 {
 	// atexit(leaks);
-	t_vars			vars;
-	t_data			image;
-	t_info			info;
+	t_vars	vars;
 
 	if (ac != 2)
 		my_error("not 2 argc");
-	cnt_width(av[1], &info);
-	cnt_height(av[1], &info);
-	vars.orimap = (t_coordinate *)malloc(sizeof(t_coordinate) * (info.width * info.height));
+	cnt_width(av[1], &vars);
+	cnt_height(av[1], &vars);
+	vars.orimap = (t_coordinate *)malloc(sizeof(t_coordinate) * vars.info.width * vars.info.height);
+	vars.map = (t_coordinate *)malloc(sizeof(t_coordinate) * vars.info.width * vars.info.height);
 	// free(vars.map);
-	parsing(&vars, av[1], &info);
-	copy_ori(&vars, &info);
-/* need add scale setting func */
-	info.scale = 50;
-	info.high = 30;
-	set_map_scale(&vars, &info);
-	set_map_center(&vars, &info);
-z_rotation(vars.map, &info, 45);
-x_rotation(vars.map, &info, 30);
-	set_window_center(&vars, &info);
-	init_mlx(&vars, &image);
+	parsing(&vars, av[1]);
+	copy_ori(&vars);
+	set_map_scale(&vars);
+	set_map_center(&vars);
+z_rotation(&vars, 45);
+x_rotation(&vars, 30);
+	set_window_center(&vars);
+	init_mlx(&vars);
 	init_hook(&vars);
-	draw_map(&vars, &info, &image);
-	mlx_put_image_to_window(vars.mlx, vars.win, image.img, 0, 0);
+	draw_map(&vars, vars.map);
+	mlx_put_image_to_window(vars.mlx, vars.win, vars.image.img, 0, 0);
 	mlx_loop(vars.mlx);
 	return (0);
 

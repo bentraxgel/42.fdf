@@ -6,7 +6,7 @@
 /*   By: seok <seok@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/21 21:24:43 by seok              #+#    #+#             */
-/*   Updated: 2023/07/07 14:22:33 by seok             ###   ########.fr       */
+/*   Updated: 2023/07/07 14:18:47 by seok             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	near_int(double n)
 		return (b);
 }
 
-void	x_rotation(t_vars *vars, int deg)
+void	x_rotation(t_vars *vars, t_coordinate *map, int deg)
 {
 	int	i;
 	int	tmp_y;
@@ -34,16 +34,16 @@ void	x_rotation(t_vars *vars, int deg)
 	i = -1;
 	while (++i < vars->info.width * vars->info.height)
 	{
-		tmp_y = vars->map[i].y;
-		tmp_z = vars->map[i].z;
-		vars->map[i].y = near_int(tmp_y * cos(deg * RAD) \
+		tmp_y = map[i].y;
+		tmp_z = map[i].z;
+		map[i].y = near_int(tmp_y * cos(deg * RAD) \
 							- tmp_z * sin(deg * RAD));
-		vars->map[i].z = near_int(tmp_y * sin(deg * RAD) \
+		map[i].z = near_int(tmp_y * sin(deg * RAD) \
 							+ tmp_z * cos(deg * RAD));
 	}
 }
 
-void	y_rotation(t_vars *vars, int deg)
+void	y_rotation(t_vars *vars, t_coordinate *map, int deg)
 {
 	int	i;
 	int	tmp_x;
@@ -52,16 +52,16 @@ void	y_rotation(t_vars *vars, int deg)
 	i = -1;
 	while (++i < vars->info.width * vars->info.height)
 	{
-		tmp_x = vars->map[i].x;
-		tmp_z = vars->map[i].z;
-		vars->map[i].x = near_int(tmp_x * cos(deg * RAD) \
+		tmp_x = map[i].x;
+		tmp_z = map[i].z;
+		map[i].x = near_int(tmp_x * cos(deg * RAD) \
 							+ tmp_z * sin(deg * RAD));
-		vars->map[i].z = near_int(tmp_z * cos(deg * RAD) \
+		map[i].z = near_int(tmp_z * cos(deg * RAD) \
 							- tmp_x * sin(deg * RAD));
 	}
 }
 
-void	z_rotation(t_vars *vars, int deg)
+void	z_rotation(t_vars *vars, t_coordinate *map, int deg)
 {
 	int	i;
 	int	tmp_x;
@@ -70,11 +70,11 @@ void	z_rotation(t_vars *vars, int deg)
 	i = -1;
 	while (++i < vars->info.width * vars->info.height)
 	{
-		tmp_x = vars->map[i].x;
-		tmp_y = vars->map[i].y;
-		vars->map[i].x = near_int(tmp_x * cos(deg * RAD) \
+		tmp_x = map[i].x;
+		tmp_y = map[i].y;
+		map[i].x = near_int(tmp_x * cos(deg * RAD) \
 							- tmp_y * sin(deg * RAD));
-		vars->map[i].y = near_int(tmp_x * sin(deg * RAD) \
+		map[i].y = near_int(tmp_x * sin(deg * RAD) \
 							+ tmp_y * cos(deg * RAD));
 	}
 }

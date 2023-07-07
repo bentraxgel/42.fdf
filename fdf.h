@@ -6,7 +6,7 @@
 /*   By: seok <seok@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 18:17:56 by seok              #+#    #+#             */
-/*   Updated: 2023/07/07 08:34:13 by seok             ###   ########.fr       */
+/*   Updated: 2023/07/07 19:39:46 by seok             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ typedef enum e_key
 	Y_KEY = 16,
 	Z_KEY = 6,
 	H_KEY = 4,
+	G_KEY = 5,
 	I_KEY = 34,
 	O_KEY = 31,
 	BENT_KEY = 33,
@@ -120,45 +121,52 @@ char	*split_hex(char *str);
 int	key_hook(int keycode, t_vars *vars);
 int	mouse_hook(int button, int x, int y, t_vars *vars);
 int	close_window(t_vars *vars);
-/* 연결리스트를 사용하지 않으므로 그대들은 무덤으로 가시게
-	t_coordinate *new_coordinate(int x, int y, int z);
-	// void	add_coordinate(t_coordinate *dot, int x, int y, int z);
-	void	add_coordinate(t_coordinate *dot, t_info *dot_info, int x, int y, int z);
-	void	a_add_coordinate(t_info *dot_info, int x, int y, int z);
-*/
 
 // main_utill.c
-int	my_error(char *err);
+int		my_error(char *err);
 void	*alloc_guard(size_t typesize, size_t count);
-void	copy_ori(t_vars *vars, t_info *info);
+void	copy_ori(t_vars *vars);
 
-// parsing.c
-void	is_color(char *str, t_info *info);
-void	cnt_height(char *av, t_info *info);
-void	cnt_width(char *av, t_info *info);
-void	parsing(t_vars *vars, char *av, t_info *info);
-int		input_coordinates(char **word, t_info *info, t_vars *vars, int h);
+// parsing.c -norm
+void	is_color(char *str, t_vars *vars);
+void	cnt_height(char *av, t_vars *vars);
+void	cnt_width(char *av, t_vars *vars);
+void	parsing(t_vars *vars, char *av);
+int		input_coordinates(char **word, t_vars *vars, int h);
 
 // init.c
-void	init_mlx(t_vars *vars, t_data *image);
+void	init_mlx(t_vars *vars);
 void	init_hook(t_vars *vars);
 
 // map_vis.c
-void	set_map_scale(t_vars *vars, t_info *info);
-void	set_map_center(t_vars *vars, t_info *info);
-void	set_window_center(t_vars *vars, t_info *info);
-void	draw_map(t_vars *vars, t_info *info, t_data *image);
+void	set_map_scale(t_vars *vars);
+void	set_map_center(t_vars *vars);
+void	set_window_center(t_vars *vars);
+void	draw_map(t_vars *vars, t_coordinate *map);
 
-// rotation_matrix.c
+// rotation_matrix.c -norm
 int near_int(double n);
-void	x_rotation(t_coordinate *map, t_info *info, int deg);
-void	y_rotation(t_coordinate *map, t_info *info, int deg);
-void	z_rotation(t_coordinate *map, t_info *info, int deg);
-void	not_z_rotation(t_coordinate *map, t_info *info, int deg);
+void	x_rotation(t_vars *vars, int deg);
+void	y_rotation(t_vars *vars, int deg);
+void	z_rotation(t_vars *vars, int deg);
+// void	x_rotation(t_vars *vars, t_coordinate *map, deg);
+// void	y_rotation(t_vars *vars, t_coordinate *map, deg);
+// void	z_rotation(t_vars *vars, t_coordinate *map, deg);
 
 // hook.c
 int	mouse_hook(int button, int x, int y, t_vars *vars);
 int	mouse_hook(int button, int x, int y, t_vars *vars);
 int	close_window(t_vars *vars);
+void	handle_high(int keycode, t_vars *vars);
+void	handle_rot(int keycode, t_vars *vars);
+void	handle_zoom(int keycode, t_vars *vars);
+void	arrow_keys(int keycode, t_vars *vars);
+void	handle_zoom(int keycode, t_vars *vars);
+
+// map_move.c
+void	clear_img(t_vars *vars);
+void	move_x(t_vars *vars, int keycode);
+void	move_y(t_vars *vars, int keycode);
+void	view_map(t_vars *vars, int keycode);
 
 #endif
