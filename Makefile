@@ -3,7 +3,7 @@ CC = cc
 CFLAG = -Wall -Wextra -Werror -Imlx
 NAME = fdf
 SRC = main.c make_line.c my_mlx.c parsing.c main_utill.c rotation_matrix.c \
-		init.c map_vis.c hook.c map_move.c
+		init.c map_vis.c hook.c map_move.c earth.c
 OBJ = $(SRC:%.c=%.o)
 OBJ_DIR = obj
 OBJ_FILE = $(addprefix $(OBJ_DIR)/, $(OBJ))

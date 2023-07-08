@@ -6,7 +6,7 @@
 /*   By: seok <seok@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 07:20:51 by seok              #+#    #+#             */
-/*   Updated: 2023/07/08 17:03:55 by seok             ###   ########.fr       */
+/*   Updated: 2023/07/08 19:55:57 by seok             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ void	view_map(t_vars *vars, int keycode)
 		draw_map(vars);
 		mlx_put_image_to_window(vars->mlx, vars->win, vars->image.img, 0, 0);
 	}
-	else if (keycode == TWO_KEY)
+	else if (keycode == TWO_KEY || keycode == W_KEY)
 	{
 		copy_ori(vars, vars->orimap, vars->map);
 		// printf("map : %d\n", vars->orimap[0].x);

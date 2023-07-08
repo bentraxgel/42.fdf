@@ -6,7 +6,7 @@
 /*   By: seok <seok@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 18:17:56 by seok              #+#    #+#             */
-/*   Updated: 2023/07/08 19:22:26 by seok             ###   ########.fr       */
+/*   Updated: 2023/07/08 20:20:31 by seok             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 #include <math.h>
 
 #define COLOR 0xFFFFFF
-#define	RAD	3.1415926 / 180
+#define	RAD	M_PI / 180
 #define	DEGREE 15 //TODO 현재 매개변수deg로 변경했음 - 고민중
 #define	WIN_W	1200
 #define WIN_H	1100
@@ -56,7 +56,9 @@ typedef enum e_key
 	LEFT_KEY = 123,
 	RIGHT_KEY,
 	DOWN_KEY,
-	UP_KEY
+	UP_KEY,
+	E_KEY = 14,
+	W_KEY = 13
 }t_key;
 
 typedef struct s_position
@@ -83,9 +85,9 @@ typedef struct s_info
 	int	width;
 	int	height;
 	int	color;
+	int	earth;
 	float	scale;
 	float	high;
-
 }t_info;
 
 typedef struct s_data
@@ -102,6 +104,7 @@ typedef struct s_vars
 	void			*mlx;
 	void			*win;
 	t_coordinate	*map;
+	t_coordinate	*ear;
 	t_coordinate	*orimap;
 	t_data			image;
 	t_info			info;
@@ -172,5 +175,8 @@ void	clear_img(t_vars *vars);
 void	move_x(t_vars *vars, int keycode);
 void	move_y(t_vars *vars, int keycode);
 void	view_map(t_vars *vars, int keycode);
+
+// earth.c
+void	make_earth(t_vars *vars);
 
 #endif

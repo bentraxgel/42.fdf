@@ -6,7 +6,7 @@
 /*   By: seok <seok@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 07:10:46 by seok              #+#    #+#             */
-/*   Updated: 2023/07/08 17:16:01 by seok             ###   ########.fr       */
+/*   Updated: 2023/07/08 19:56:58 by seok             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,11 @@ int	key_hook(int keycode, t_vars *vars)
 	// 	handle_high(keycode, vars);	
 	else if (keycode == I_KEY || keycode == O_KEY)
 		handle_zoom(keycode, vars);
-	else if (keycode == ONE_KEY || keycode == TWO_KEY || \
+	else if (keycode == ONE_KEY || keycode == TWO_KEY || keycode == W_KEY || \
 				(LEFT_KEY <= keycode && keycode <= UP_KEY))
 		arrow_keys(keycode, vars);
+	else if (keycode == E_KEY)
+		make_earth(vars);
 	return (0);
 }
 
@@ -144,7 +146,7 @@ void	handle_zoom(int keycode, t_vars *vars)
 
 void	arrow_keys(int keycode, t_vars *vars)
 {
-	if (keycode == ONE_KEY || keycode == TWO_KEY)
+	if (keycode == ONE_KEY || keycode == TWO_KEY || keycode == W_KEY)
 		view_map(vars, keycode);
 	else if (keycode == LEFT_KEY)
 		move_x(vars, keycode);

@@ -33,6 +33,7 @@ int	main(int ac, char *av[])
 	cnt_height(av[1], &vars);
 	vars.orimap = (t_coordinate *)malloc(sizeof(t_coordinate) * vars.info.width * vars.info.height);
 	vars.map = (t_coordinate *)malloc(sizeof(t_coordinate) * vars.info.width * vars.info.height);
+	vars.info.earth = 0;
 	// free(vars.map);
 	parsing(&vars, av[1]);
 	copy_ori(&vars, vars.orimap, vars.map);
