@@ -6,7 +6,7 @@
 /*   By: seok <seok@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 07:10:46 by seok              #+#    #+#             */
-/*   Updated: 2023/07/07 19:51:06 by seok             ###   ########.fr       */
+/*   Updated: 2023/07/08 17:16:01 by seok             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ int	key_hook(int keycode, t_vars *vars)
 	}
 	else if (keycode == X_KEY || keycode == Y_KEY || keycode == Z_KEY)
 		handle_rot(keycode, vars);
-	else if (keycode == H_KEY || keycode == G_KEY)
-		handle_high(keycode, vars);	
+	// else if (keycode == H_KEY || keycode == G_KEY)
+	// 	handle_high(keycode, vars);	
 	else if (keycode == I_KEY || keycode == O_KEY)
 		handle_zoom(keycode, vars);
 	else if (keycode == ONE_KEY || keycode == TWO_KEY || \
@@ -40,54 +40,76 @@ int	key_hook(int keycode, t_vars *vars)
 	return (0);
 }
 
-// void	handle_high(int keycode, t_vars *vars)
-// {
-// 	int	i;
+void	handle_high(int keycode, t_vars *vars)
+{
+	int	i;
 
-// 	i = -1;
-// 	if (keycode == H_KEY)
-// 	{
-// 		while (++i < vars->info.width * vars->info.height)
-// 		{
-// 			vars->map[i].z += 0.1;
-// 			// z_rotation(vars, 1);
-// 			x_rotation(vars, 1);
-// 		}
-// 		clear_img(vars);
-// 		draw_map(vars, vars->map);
-// 		mlx_put_image_to_window(vars->mlx, vars->win, vars->image.img, 0, 0);
-// 	}
-// 	else if (keycode == G_KEY)
-// 	{
-// 		while (++i < vars->info.width * vars->info.height)
-// 			vars->map[i].z *= 0.9;
-// 		clear_img(vars);
-// 		draw_map(vars, vars->map);
-// 		mlx_put_image_to_window(vars->mlx, vars->win, vars->image.img, 0, 0);
-// 	}
-// }
+	i = -1;
+	if (keycode == H_KEY)
+	{
+		t_coordinate	*tmp;
+
+		tmp = malloc(sizeof(t_coordinate) * vars->info.width * vars->info.height);
+		vars->z_scale += 0.5;
+		copy_ori(vars, vars->map, tmp);
+
+		// while (++i < vars->info.width * vars->info.height)
+		// 	vars->map[i].z *= 5;
+		// // printf("map : %d\n", vars->orimap[0].x);
+		// set_map_scale(vars);
+		// set_map_center(vars);
+		// z_rotation(vars, 45);
+		// x_rotation(vars, 30);
+		// // set_window_center(vars);
+		clear_img(vars);
+		draw_map(vars);
+		mlx_put_image_to_window(vars->mlx, vars->win, vars->image.img, 0, 0);
+	}
+	// {
+	// 	while (++i < vars->info.width * vars->info.height)
+	// 	{
+	// 		vars->map[i].z += 0.1;
+	// 		// z_rotation(vars, 1);
+	// 		x_rotation(vars, 1);
+	// 	}
+	// 	clear_img(vars);
+	// 	draw_map(vars);
+	// 	mlx_put_image_to_window(vars->mlx, vars->win, vars->image.img, 0, 0);
+	// }
+	else if (keycode == G_KEY)
+	{
+		while (++i < vars->info.width * vars->info.height)
+			vars->map[i].z *= 0.9;
+		clear_img(vars);
+		draw_map(vars);
+		mlx_put_image_to_window(vars->mlx, vars->win, vars->image.img, 0, 0);
+	}
+}
 
 void	handle_rot(int keycode, t_vars *vars)
 {
 	if (keycode == X_KEY)
 	{
-		x_rotation(vars, 5);
+		x_rotation(vars, 2);
 		clear_img(vars);
-		draw_map(vars, vars->map);
+		// draw_map(vars);
+		draw_map(vars);
 		mlx_put_image_to_window(vars->mlx, vars->win, vars->image.img, 0, 0);
 	}
 	else if (keycode == Y_KEY)
 	{
-		y_rotation(vars, 5);
+		y_rotation(vars, 2);
 		clear_img(vars);
-		draw_map(vars, vars->map);
+		// draw_map(vars);
+		draw_map(vars);
 		mlx_put_image_to_window(vars->mlx, vars->win, vars->image.img, 0, 0);
 	}
 	else if (keycode == Z_KEY)
 	{
-		z_rotation(vars, 5);
+		z_rotation(vars, 2);
 		clear_img(vars);
-		draw_map(vars, vars->map);
+		// draw_map(vars);
+		draw_map(vars);
 		mlx_put_image_to_window(vars->mlx, vars->win, vars->image.img, 0, 0);
 	}
 }
@@ -101,22 +123,22 @@ void	handle_zoom(int keycode, t_vars *vars)
 	{
 		while (++i < vars->info.width * vars->info.height)
 		{
-			vars->map[i].x *= 1.1;
-			vars->map[i].y *= 1.1;
-			vars->map[i].z *= 1.01;
+			vars->map[i].x *= 1.125;
+			vars->map[i].y *= 1.125;
+			vars->map[i].z *= 1.125;
 		}
 	}
 	else
 	{
 		while (++i < vars->info.width * vars->info.height)
 		{
-			vars->map[i].x *= 0.9;
-			vars->map[i].y *= 0.9;
-			vars->map[i].z *= 0.09;
+			vars->map[i].x *= 0.875;
+			vars->map[i].y *= 0.875;
+			vars->map[i].z *= 0.875;
 		}
 	}
 	clear_img(vars);
-	draw_map(vars, vars->map);
+	draw_map(vars);
 	mlx_put_image_to_window(vars->mlx, vars->win, vars->image.img, 0, 0);
 }
 

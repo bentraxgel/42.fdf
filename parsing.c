@@ -6,7 +6,7 @@
 /*   By: seok <seok@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 21:53:31 by seok              #+#    #+#             */
-/*   Updated: 2023/07/07 18:22:28 by seok             ###   ########.fr       */
+/*   Updated: 2023/07/08 16:41:39 by seok             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,6 +103,7 @@ int	input_coordinates(char **word, t_vars *vars, int h)
 	int	i;
 
 	i = -1;
+	vars->z_scale = 1;
 	while (word[++i] && i < vars->info.width)
 	{
 		vars->orimap[i + (vars->info.width * h)].x = i;

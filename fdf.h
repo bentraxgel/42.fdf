@@ -6,7 +6,7 @@
 /*   By: seok <seok@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 18:17:56 by seok              #+#    #+#             */
-/*   Updated: 2023/07/07 19:39:46 by seok             ###   ########.fr       */
+/*   Updated: 2023/07/08 19:22:26 by seok             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,9 +72,9 @@ typedef struct s_position
 
 typedef struct s_coordinate
 {
-	int	x;
-	int	y;
-	int z;
+	float	x;
+	float	y;
+	float	z;
 	int	color;
 }t_coordinate;
 
@@ -83,8 +83,9 @@ typedef struct s_info
 	int	width;
 	int	height;
 	int	color;
-	int	scale;
-	int	high;
+	float	scale;
+	float	high;
+
 }t_info;
 
 typedef struct s_data
@@ -104,6 +105,8 @@ typedef struct s_vars
 	t_coordinate	*orimap;
 	t_data			image;
 	t_info			info;
+	float			z_scale;
+	
 }t_vars;
 
 // my_mlx.c
@@ -125,7 +128,7 @@ int	close_window(t_vars *vars);
 // main_utill.c
 int		my_error(char *err);
 void	*alloc_guard(size_t typesize, size_t count);
-void	copy_ori(t_vars *vars);
+void	copy_ori(t_vars *vars, t_coordinate *ori, t_coordinate *new);
 
 // parsing.c -norm
 void	is_color(char *str, t_vars *vars);
@@ -141,8 +144,9 @@ void	init_hook(t_vars *vars);
 // map_vis.c
 void	set_map_scale(t_vars *vars);
 void	set_map_center(t_vars *vars);
-void	set_window_center(t_vars *vars);
-void	draw_map(t_vars *vars, t_coordinate *map);
+void	set_window_center(t_vars *vars, t_coordinate *map);
+// void	set_window_center(t_vars *vars);
+void	draw_map(t_vars *vars);
 
 // rotation_matrix.c -norm
 int near_int(double n);

@@ -6,7 +6,7 @@
 /*   By: seok <seok@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 06:17:30 by seok              #+#    #+#             */
-/*   Updated: 2023/07/07 15:54:47 by seok             ###   ########.fr       */
+/*   Updated: 2023/07/08 15:53:07 by seok             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	set_map_scale(t_vars *vars)
 	else
 		vars->info.scale = (WIN_H - 200) / vars->info.height;
 	vars->info.high = vars->info.scale / 6;
-	printf("scale : %d %d\n", vars->info.scale, vars->info.high);
+	// printf("scale : %d %d\n", vars->info.scale, vars->info.high);
 	while (++i < vars->info.width * vars->info.height)
 	{
 		vars->map[i].x *= vars->info.scale;
@@ -47,31 +47,38 @@ void	set_map_center(t_vars *vars)
 	}
 }
 
-void	set_window_center(t_vars *vars)
+void	set_window_center(t_vars *vars, t_coordinate *map)
 {
-	int i; 
+	int i;
+	
 
 	i = -1;
 	while (++i < vars->info.width * vars->info.height)
 	{
-		vars->map[i].x += (WIN_W / 2);
-		vars->map[i].y += (WIN_H / 2);
+		map[i].x += (WIN_W / 2);
+		map[i].y += (WIN_H / 2);
 	}
 }
 
-void	draw_map(t_vars *vars, t_coordinate *map)
+void	draw_map(t_vars *vars)
 {
 	int	row;
 	int	col;
+	t_coordinate	*tmp;
 
+	tmp = malloc(sizeof(t_coordinate) * vars->info.width * vars->info.height);
+	copy_ori(vars, vars->map, tmp);
 	row = -1;
+	set_window_center(vars, tmp);
 	while (++row < vars->info.height)
 	{
 		col = -1;
 		while (++col < vars->info.width - 1)
-			make_line(&map[vars->info.width * row + col], &map[vars->info.width * row + col + 1], &vars->image);
+			make_line(&tmp[vars->info.width * row + col], &tmp[vars->info.width * row + col + 1], &vars->image);
 		col = -1;
 		while (row < vars->info.height - 1 && ++col < vars->info.width)
-			make_line(&map[vars->info.width * row + col], &map[vars->info.width * (row + 1) + col], &vars->image);
+			make_line(&tmp[vars->info.width * row + col], &tmp[vars->info.width * (row + 1) + col], &vars->image);
 	}
+// printf("after : %d  %d\n", vars->map[0].x, tmp[0].x);
+	free(tmp);
 }

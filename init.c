@@ -6,7 +6,7 @@
 /*   By: seok <seok@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 06:01:15 by seok              #+#    #+#             */
-/*   Updated: 2023/07/07 08:44:07 by seok             ###   ########.fr       */
+/*   Updated: 2023/07/08 14:23:43 by seok             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	init_mlx(t_vars *vars)
 void	init_hook(t_vars *vars)
 {
 	// mlx_key_hook(vars->win, key_hook, &vars);
-	mlx_hook(vars->win, ON_KEYUP, 0, key_hook, vars);
+	mlx_hook(vars->win, ON_KEYDOWN, 0, key_hook, vars);
 	mlx_hook(vars->win, ON_DESTROY, 0, close_window, vars);
 	mlx_mouse_hook(vars->win, mouse_hook, vars);
 	// mlx_hook(vars->win, ON_MOUSEDOWN, 0, mouse_down, vars);

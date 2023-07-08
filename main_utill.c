@@ -6,7 +6,7 @@
 /*   By: seok <seok@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 00:17:39 by quesera           #+#    #+#             */
-/*   Updated: 2023/07/07 17:09:43 by seok             ###   ########.fr       */
+/*   Updated: 2023/07/08 17:04:37 by seok             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,16 +38,16 @@ void	*alloc_guard(size_t typesize, size_t count)
 	return (ret);
 }
 
-void	copy_ori(t_vars *vars)
+void	copy_ori(t_vars *vars, t_coordinate *ori, t_coordinate *new)
 {
 	int	i;
 
 	i = -1;
 	while (++i < vars->info.width * vars->info.height)
 	{
-		vars->map[i].x = vars->orimap[i].x;
-		vars->map[i].y = vars->orimap[i].y;
-		vars->map[i].z = vars->orimap[i].z;
-		vars->map[i].color = vars->orimap[i].color;
+		new[i].x = ori[i].x;
+		new[i].y = ori[i].y;
+		new[i].z = ori[i].z * vars->z_scale;
+		new[i].color = ori[i].color;
 	}
 }
