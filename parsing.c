@@ -6,7 +6,7 @@
 /*   By: seok <seok@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 21:53:31 by seok              #+#    #+#             */
-/*   Updated: 2023/07/09 22:10:45 by seok             ###   ########.fr       */
+/*   Updated: 2023/07/09 23:10:15 by seok             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,10 +83,6 @@ void	parsing(t_vars *vars, char *av)
 
 	h = 0;
 	fd = open(av, O_RDONLY);
-	printf("fd : %d\n", fd);
-	if (fd < 0) //TODO open오류일경우 ㅣ어디에 둘까..
-		my_error("file descriptor");
-	printf("H\n");
 	while (get_next_line(fd, &str) == true)
 	{
 		word = ft_split(str, ' ');
@@ -96,6 +92,11 @@ void	parsing(t_vars *vars, char *av)
 		if (vars->info.width != i)
 			my_error("different width length");
 	}
+for (int i = 0; word[i]; i++)
+	printf("%d ", i);
+	printf("\nword[0] : %s\n", *word);
+	printf("\nword[0] : %s\n", word[2]);
+	printf("word[0] : %c\n", word[2][2]);
 	while (i-- > 0)
 		free(word[i]);
 	free(word);
