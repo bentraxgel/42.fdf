@@ -6,7 +6,7 @@
 /*   By: seok <seok@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/08 19:32:34 by seok              #+#    #+#             */
-/*   Updated: 2023/07/08 20:25:42 by seok             ###   ########.fr       */
+/*   Updated: 2023/07/09 22:27:56 by seok             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,12 @@
 #define HIGH	4
 #define WIDT	5
 #define TOTAL	6
+#define SCALE	7
 
 float	ft_max(float a, float b)
 {
 	if (a > b)
-		return(a);
+		return (a);
 	return (b);
 }
 
@@ -47,7 +48,7 @@ float	ft_factor(t_vars *vars, float f[10])
 		if (min > vars->orimap[i].z)
 			min = vars->orimap[i].z;
 	}
-	return(10 * ft_max(ft_fabs(min), ft_fabs(max)));
+	return (10 * ft_max(ft_fabs(min), ft_fabs(max)));
 }
 
 void	make_earth(t_vars *vars)
@@ -59,18 +60,21 @@ void	make_earth(t_vars *vars)
 	f[WIDT] = vars->info.width;
 	f[TOTAL] = vars->info.height * vars->info.width;
 	f[FACTOR] = ft_factor(vars, f);
-	// vars->ear = malloc(sizeof(t_coordinate) * f[HIGH] * f[WIDT]);
-	// copy_ori(vars, vars->orimap, vars->ear);
+	f[SCALE] = vars->info.scale;
 	i = -1;
 	while (++i < f[WIDT] * f[HIGH])
 	{
 		f[ORI_X] = vars->orimap[i].x;
 		f[ORI_Y] = vars->orimap[i].y;
 		f[ORI_Z] = vars->orimap[i].z;
-		vars->map[i].x = vars->info.scale * (f[FACTOR] + f[ORI_Z]) * sin((f[ORI_Y] + 1) * M_PI / (f[HIGH] + 2)) * cos(f[ORI_X] * 2 * M_PI / (f[WIDT] + 1));
-		vars->map[i].y = vars->info.scale * (f[FACTOR] + f[ORI_Z]) * sin((f[ORI_Y] + 1) * M_PI / (f[HIGH] + 2)) * sin(f[ORI_X] * 2 * M_PI / (f[WIDT] + 1));
-		vars->map[i].z = vars->info.scale * (f[FACTOR] + f[ORI_Z]) * cos((f[ORI_Y] + 1) * M_PI / (f[HIGH] + 2));
+		vars->map[i].x = f[SCALE] * (f[FACTOR] + f[ORI_Z]) * sin((f[ORI_Y] + 1) \
+			* M_PI / (f[HIGH] + 2)) * cos(f[ORI_X] * 2 * M_PI / (f[WIDT] + 1));
+		vars->map[i].y = f[SCALE] * (f[FACTOR] + f[ORI_Z]) * sin((f[ORI_Y] + 1) \
+			* M_PI / (f[HIGH] + 2)) * sin(f[ORI_X] * 2 * M_PI / (f[WIDT] + 1));
+		vars->map[i].z = f[SCALE] * (f[FACTOR] + f[ORI_Z]) * cos((f[ORI_Y] + 1) \
+			* M_PI / (f[HIGH] + 2));
 	}
+	x_rotation(vars, 90);
 	clear_img(vars);
 	draw_map(vars);
 	mlx_put_image_to_window(vars->mlx, vars->win, vars->image.img, 0, 0);

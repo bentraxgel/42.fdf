@@ -6,7 +6,7 @@
 /*   By: seok <seok@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 18:17:56 by seok              #+#    #+#             */
-/*   Updated: 2023/07/08 20:20:31 by seok             ###   ########.fr       */
+/*   Updated: 2023/07/09 22:16:30 by seok             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,6 @@ typedef struct s_info
 	int	width;
 	int	height;
 	int	color;
-	int	earth;
 	float	scale;
 	float	high;
 }t_info;
@@ -104,7 +103,6 @@ typedef struct s_vars
 	void			*mlx;
 	void			*win;
 	t_coordinate	*map;
-	t_coordinate	*ear;
 	t_coordinate	*orimap;
 	t_data			image;
 	t_info			info;

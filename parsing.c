@@ -6,7 +6,7 @@
 /*   By: seok <seok@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 21:53:31 by seok              #+#    #+#             */
-/*   Updated: 2023/07/08 16:41:39 by seok             ###   ########.fr       */
+/*   Updated: 2023/07/09 22:10:45 by seok             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,8 @@ void	cnt_width(char *av, t_vars *vars)
 			free(word[i]);
 		free(word);
 	}
+	else
+		my_error("get_next_line == false");
 	while (get_next_line(fd, &str) == true)
 		free(str);
 	close(fd);
@@ -81,8 +83,10 @@ void	parsing(t_vars *vars, char *av)
 
 	h = 0;
 	fd = open(av, O_RDONLY);
+	printf("fd : %d\n", fd);
 	if (fd < 0) //TODO open오류일경우 ㅣ어디에 둘까..
 		my_error("file descriptor");
+	printf("H\n");
 	while (get_next_line(fd, &str) == true)
 	{
 		word = ft_split(str, ' ');

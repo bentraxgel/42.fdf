@@ -6,7 +6,7 @@
 /*   By: seok <seok@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 03:18:32 by quesera           #+#    #+#             */
-/*   Updated: 2023/07/07 18:21:55 by seok             ###   ########.fr       */
+/*   Updated: 2023/07/09 22:11:07 by seok             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,7 +110,7 @@ int	get_next_line(int fd, char **ret)
 	static t_lst	*head;
 	t_lst			*find;
 
-	if (fd < 0) //TODO open오류일경우에 대한것 어디에 둘건지 생각.
+	if (fd < 0)
 		my_error("file descriptor");
 	if (BUFFER_SIZE <= 0 || read(fd, NULL, 0) < 0)
 	{

@@ -6,7 +6,7 @@
 /*   By: seok <seok@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 06:17:30 by seok              #+#    #+#             */
-/*   Updated: 2023/07/08 20:24:12 by seok             ###   ########.fr       */
+/*   Updated: 2023/07/09 22:17:19 by seok             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,10 +67,7 @@ void	draw_map(t_vars *vars)
 	t_coordinate	*tmp;
 
 	tmp = malloc(sizeof(t_coordinate) * vars->info.width * vars->info.height);
-	if (vars->info.earth == true)
-		copy_ori(vars, vars->ear, tmp);
-	else
-		copy_ori(vars, vars->map, tmp);
+	copy_ori(vars, vars->map, tmp);
 	row = -1;
 	set_window_center(vars, tmp);
 	while (++row < vars->info.height)
@@ -82,6 +79,5 @@ void	draw_map(t_vars *vars)
 		while (row < vars->info.height - 1 && ++col < vars->info.width)
 			make_line(&tmp[vars->info.width * row + col], &tmp[vars->info.width * (row + 1) + col], &vars->image);
 	}
-// printf("after : %d  %d\n", vars->map[0].x, tmp[0].x);
 	free(tmp);
 }
