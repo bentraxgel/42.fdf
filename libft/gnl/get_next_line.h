@@ -6,12 +6,9 @@
 /*   By: seok <seok@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 01:59:31 by seok              #+#    #+#             */
-/*   Updated: 2023/06/28 02:07:49 by seok             ###   ########.fr       */
+/*   Updated: 2023/07/12 17:23:25 by seok             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#ifndef C62A3609_5E12_4FBE_9D3A_76FF795BA66A
-#define C62A3609_5E12_4FBE_9D3A_76FF795BA66A
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
@@ -22,7 +19,7 @@
 
 # include <stdlib.h>
 # include <unistd.h>
-#include <stdbool.h>
+# include <stdbool.h>
 
 typedef struct s_lst
 {
@@ -44,6 +41,3 @@ char	*my_save_check(int fd, t_lst **head);
 int		get_next_line(int fd, char **ret);
 
 #endif
-
-
-#endif /* C62A3609_5E12_4FBE_9D3A_76FF795BA66A */

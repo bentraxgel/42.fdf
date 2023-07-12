@@ -6,7 +6,7 @@
 /*   By: seok <seok@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/21 21:24:43 by seok              #+#    #+#             */
-/*   Updated: 2023/07/11 20:09:10 by seok             ###   ########.fr       */
+/*   Updated: 2023/07/12 18:04:46 by seok             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,10 @@ void	x_rotation(t_vars *vars, int deg)
 	{
 		tmp_y = vars->map[i].y;
 		tmp_z = vars->map[i].z;
-		vars->map[i].y = tmp_y * cos(deg * RAD) \
-							- tmp_z * sin(deg * RAD);
-		vars->map[i].z = tmp_y * sin(deg * RAD) \
-							+ tmp_z * cos(deg * RAD);
+		vars->map[i].y = tmp_y * cos(deg * M_PI / 180) \
+							- tmp_z * sin(deg * M_PI / 180);
+		vars->map[i].z = tmp_y * sin(deg * M_PI / 180) \
+							+ tmp_z * cos(deg * M_PI / 180);
 	}
 }
 
@@ -54,10 +54,10 @@ void	y_rotation(t_vars *vars, int deg)
 	{
 		tmp_x = vars->map[i].x;
 		tmp_z = vars->map[i].z;
-		vars->map[i].x = tmp_x * cos(deg * RAD) \
-							+ tmp_z * sin(deg * RAD);
-		vars->map[i].z = tmp_z * cos(deg * RAD) \
-							- tmp_x * sin(deg * RAD);
+		vars->map[i].x = tmp_x * cos(deg * M_PI / 180) \
+							+ tmp_z * sin(deg * M_PI / 180);
+		vars->map[i].z = tmp_z * cos(deg * M_PI / 180) \
+							- tmp_x * sin(deg * M_PI / 180);
 	}
 }
 
@@ -72,9 +72,9 @@ void	z_rotation(t_vars *vars, int deg)
 	{
 		tmp_x = vars->map[i].x;
 		tmp_y = vars->map[i].y;
-		vars->map[i].x = tmp_x * cos(deg * RAD) \
-							- tmp_y * sin(deg * RAD);
-		vars->map[i].y = tmp_x * sin(deg * RAD) \
-							+ tmp_y * cos(deg * RAD);
+		vars->map[i].x = tmp_x * cos(deg * M_PI / 180) \
+							- tmp_y * sin(deg * M_PI / 180);
+		vars->map[i].y = tmp_x * sin(deg * M_PI / 180) \
+							+ tmp_y * cos(deg * M_PI / 180);
 	}
 }

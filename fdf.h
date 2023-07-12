@@ -6,25 +6,24 @@
 /*   By: seok <seok@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 18:17:56 by seok              #+#    #+#             */
-/*   Updated: 2023/07/12 12:50:59 by seok             ###   ########.fr       */
+/*   Updated: 2023/07/12 17:37:34 by seok             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FDF_H
 # define FDF_H
 
-#include "libft/libft.h"
-#include "libft/gnl/get_next_line.h"
-#include "minilibx/mlx.h"
-#include <fcntl.h>
-#include <errno.h>
-#include <stdio.h>
-#include <math.h>
+# include "libft/libft.h"
+# include "libft/gnl/get_next_line.h"
+# include "minilibx/mlx.h"
+# include <fcntl.h>
+# include <errno.h>
+# include <stdio.h>
+# include <math.h>
 
-#define COLOR 0xFFFFFF
-#define	RAD	M_PI / 180
-#define	WIN_W	1200
-#define WIN_H	1100
+# define COLOR 0xFFFFFF
+# define WIN_W 1200
+# define WIN_H 1100
 
 typedef enum e_flag
 {
@@ -37,32 +36,27 @@ typedef enum e_flag
 typedef enum e_key
 {
 	ESC = 53,
-	// coordinate_ x, y, z
 	X_KEY = 7,
 	Y_KEY = 16,
 	Z_KEY = 6,
-	// zoom_ in, out
 	I_KEY = 34,
 	O_KEY = 31,
-	// view change_ aerial, Isometric projection
 	ONE_KEY = 18,
 	TWO_KEY = 19,
-	// move
 	LEFT_KEY = 123,
 	RIGHT_KEY,
 	DOWN_KEY,
 	UP_KEY,
-	// view earth version_ on, off
 	E_KEY = 14,
 	W_KEY = 13
 }t_key;
 
 typedef struct s_position
 {
-	int x;
-	int y;
-	int add_x;
-	int add_y;
+	int	x;
+	int	y;
+	int	add_x;
+	int	add_y;
 	int	dx;
 	int	dy;
 	int	p;
@@ -73,21 +67,21 @@ typedef struct s_coordinate
 	float	x;
 	float	y;
 	float	z;
-	int	color;
+	int		color;
 }t_coordinate;
 
 typedef struct s_info
 {
-	int	width;
-	int	height;
-	int	color;
+	int		width;
+	int		height;
+	int		color;
 	float	scale;
 	float	high;
 }t_info;
 
 typedef struct s_data
 {
-	void 	*img;
+	void	*img;
 	char	*addr;
 	int		bits_per_pixel;
 	int		line_length;
@@ -103,9 +97,7 @@ typedef struct s_vars
 	t_data			image;
 	t_info			info;
 	float			z_scale;
-	
 }t_vars;
-char	*split_hex(char *str);
 
 // my_mlx.c
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
@@ -114,11 +106,13 @@ void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
 int		my_error(char *err);
 void	*alloc_guard(size_t typesize, size_t count);
 void	copy_ori(t_vars *vars, t_coordinate *ori, t_coordinate *new);
+int		radian(void);
 
 // make_line.c
 void	set_position(t_position *pos, t_coordinate *cur, t_coordinate *next);
 void	make_line(t_coordinate *cur, t_coordinate *next, t_data *image);
-void	make_line1(t_position *pos, t_coordinate *cur, t_coordinate *next,t_data *image);
+void	make_line1(t_position *pos, t_coordinate *cur, \
+					t_coordinate *next, t_data *image);
 void	make_line2(t_position *pos, int color, t_data *image);
 void	make_line3(t_position *pos, int color, t_data *image);
 
@@ -140,7 +134,7 @@ void	set_window_center(t_vars *vars, t_coordinate *map);
 void	draw_map(t_vars *vars);
 
 // rotation_matrix.c
-int 	near_int(double n);
+int		near_int(double n);
 void	x_rotation(t_vars *vars, int deg);
 void	y_rotation(t_vars *vars, int deg);
 void	z_rotation(t_vars *vars, int deg);

@@ -1,6 +1,4 @@
 CC = cc
-# TODO del
-# CFLAG = -Wall -Wextra -Werror -Imlx -g3 -fsanitize=address
 CFLAG = -Wall -Wextra -Werror -Imlx
 NAME = fdf
 SRC = main.c make_line.c my_mlx.c parsing.c main_utill.c rotation_matrix.c \

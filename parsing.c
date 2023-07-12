@@ -6,7 +6,7 @@
 /*   By: seok <seok@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 21:53:31 by seok              #+#    #+#             */
-/*   Updated: 2023/07/12 13:14:20 by seok             ###   ########.fr       */
+/*   Updated: 2023/07/12 17:25:19 by seok             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,6 @@ void	parsing(t_vars *vars, char *av)
 	close(fd);
 }
 
-
 int	input_coordinates(char **word, t_vars *vars, int h)
 {
 	int	i;
@@ -116,9 +115,6 @@ int	input_coordinates(char **word, t_vars *vars, int h)
 		if (vars->info.color == true)
 			vars->orimap[i + (vars->info.width * h)].color \
 				= my_atoi_hex(word[i]);
-		// if (vars->info.color == true)
-		// 	vars->orimap[i + (vars->info.width * h)].color \
-		// 		= my_atoi_hex(split_hex(word[i]));
 	}
 	return (i);
 }
