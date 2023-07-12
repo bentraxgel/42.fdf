@@ -75,5 +75,6 @@ int		my_atoi_pro(const char *str);
 int		my_atoi_hex(const char *str);
 int		ft_abs(int n);
 int		ft_isspace(int c);
+int		my_atoi_hex(const char *str);
 
 #endif

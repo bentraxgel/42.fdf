@@ -6,7 +6,7 @@
 /*   By: seok <seok@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/21 21:24:43 by seok              #+#    #+#             */
-/*   Updated: 2023/07/08 19:25:37 by seok             ###   ########.fr       */
+/*   Updated: 2023/07/11 20:09:10 by seok             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	near_int(double n)
 
 void	x_rotation(t_vars *vars, int deg)
 {
-	int	i;
+	int		i;
 	float	tmp_y;
 	float	tmp_z;
 
@@ -40,17 +40,12 @@ void	x_rotation(t_vars *vars, int deg)
 							- tmp_z * sin(deg * RAD);
 		vars->map[i].z = tmp_y * sin(deg * RAD) \
 							+ tmp_z * cos(deg * RAD);
-		// vars->map[i].y = near_int(tmp_y * cos(deg * RAD) \
-		// 					- tmp_z * sin(deg * RAD));
-		// vars->map[i].z = near_int(tmp_y * sin(deg * RAD) \
-							// + tmp_z * cos(deg * RAD);
 	}
-// printf("before : %d\n", vars->map[0].x);
 }
 
 void	y_rotation(t_vars *vars, int deg)
 {
-	int	i;
+	int		i;
 	float	tmp_x;
 	float	tmp_z;
 
@@ -68,9 +63,10 @@ void	y_rotation(t_vars *vars, int deg)
 
 void	z_rotation(t_vars *vars, int deg)
 {
-	int	i;
+	int		i;
 	float	tmp_x;
 	float	tmp_y;
+
 	i = -1;
 	while (++i < vars->info.width * vars->info.height)
 	{

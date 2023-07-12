@@ -6,22 +6,14 @@
 /*   By: seok <seok@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 07:10:46 by seok              #+#    #+#             */
-/*   Updated: 2023/07/08 19:56:58 by seok             ###   ########.fr       */
+/*   Updated: 2023/07/11 20:28:09 by seok             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-int	mouse_hook(int button, int x, int y, t_vars *vars)
-{
-	printf("%d (%d, %d)\n", button, x, y);
-	(void)vars;
-	return (0);
-}
-
 int	key_hook(int keycode, t_vars *vars)
 {
-	printf("%d\n", keycode);
 	if (keycode == ESC)
 	{
 		mlx_destroy_window(vars->mlx, vars->win);
@@ -30,8 +22,6 @@ int	key_hook(int keycode, t_vars *vars)
 	}
 	else if (keycode == X_KEY || keycode == Y_KEY || keycode == Z_KEY)
 		handle_rot(keycode, vars);
-	// else if (keycode == H_KEY || keycode == G_KEY)
-	// 	handle_high(keycode, vars);	
 	else if (keycode == I_KEY || keycode == O_KEY)
 		handle_zoom(keycode, vars);
 	else if (keycode == ONE_KEY || keycode == TWO_KEY || keycode == W_KEY || \
@@ -42,59 +32,12 @@ int	key_hook(int keycode, t_vars *vars)
 	return (0);
 }
 
-void	handle_high(int keycode, t_vars *vars)
-{
-	int	i;
-
-	i = -1;
-	if (keycode == H_KEY)
-	{
-		t_coordinate	*tmp;
-
-		tmp = malloc(sizeof(t_coordinate) * vars->info.width * vars->info.height);
-		vars->z_scale += 0.5;
-		copy_ori(vars, vars->map, tmp);
-
-		// while (++i < vars->info.width * vars->info.height)
-		// 	vars->map[i].z *= 5;
-		// // printf("map : %d\n", vars->orimap[0].x);
-		// set_map_scale(vars);
-		// set_map_center(vars);
-		// z_rotation(vars, 45);
-		// x_rotation(vars, 30);
-		// // set_window_center(vars);
-		clear_img(vars);
-		draw_map(vars);
-		mlx_put_image_to_window(vars->mlx, vars->win, vars->image.img, 0, 0);
-	}
-	// {
-	// 	while (++i < vars->info.width * vars->info.height)
-	// 	{
-	// 		vars->map[i].z += 0.1;
-	// 		// z_rotation(vars, 1);
-	// 		x_rotation(vars, 1);
-	// 	}
-	// 	clear_img(vars);
-	// 	draw_map(vars);
-	// 	mlx_put_image_to_window(vars->mlx, vars->win, vars->image.img, 0, 0);
-	// }
-	else if (keycode == G_KEY)
-	{
-		while (++i < vars->info.width * vars->info.height)
-			vars->map[i].z *= 0.9;
-		clear_img(vars);
-		draw_map(vars);
-		mlx_put_image_to_window(vars->mlx, vars->win, vars->image.img, 0, 0);
-	}
-}
-
 void	handle_rot(int keycode, t_vars *vars)
 {
 	if (keycode == X_KEY)
 	{
 		x_rotation(vars, 2);
 		clear_img(vars);
-		// draw_map(vars);
 		draw_map(vars);
 		mlx_put_image_to_window(vars->mlx, vars->win, vars->image.img, 0, 0);
 	}
@@ -102,7 +45,6 @@ void	handle_rot(int keycode, t_vars *vars)
 	{
 		y_rotation(vars, 2);
 		clear_img(vars);
-		// draw_map(vars);
 		draw_map(vars);
 		mlx_put_image_to_window(vars->mlx, vars->win, vars->image.img, 0, 0);
 	}
@@ -110,7 +52,6 @@ void	handle_rot(int keycode, t_vars *vars)
 	{
 		z_rotation(vars, 2);
 		clear_img(vars);
-		// draw_map(vars);
 		draw_map(vars);
 		mlx_put_image_to_window(vars->mlx, vars->win, vars->image.img, 0, 0);
 	}
@@ -160,11 +101,8 @@ void	arrow_keys(int keycode, t_vars *vars)
 
 int	close_window(t_vars *vars)
 {
-	// (void)vars;
-	// printf("X keycode : %d\n", keycode);
-	// mlx_destroy_image(vars->mlx, vars->win);
 	mlx_destroy_window(vars->mlx, vars->win);
 	if (vars->map != NULL)
 		free(vars->map);
-	exit(0); //이거만으로 돼?
+	exit(0);
 }

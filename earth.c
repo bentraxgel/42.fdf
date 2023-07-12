@@ -6,7 +6,7 @@
 /*   By: seok <seok@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/08 19:32:34 by seok              #+#    #+#             */
-/*   Updated: 2023/07/09 22:27:56 by seok             ###   ########.fr       */
+/*   Updated: 2023/07/11 20:44:04 by seok             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,9 @@ float	ft_max(float a, float b)
 
 float	ft_fabs(float a)
 {
-	return (((a < 0) * (-1) + (a >= 0)) * a);
+	if (a < 0)
+		return (a * -1);
+	return (a);
 }
 
 float	ft_factor(t_vars *vars, float f[10])
@@ -41,6 +43,7 @@ float	ft_factor(t_vars *vars, float f[10])
 
 	i = 0;
 	min = vars->orimap[0].z;
+	max = vars->orimap[0].z;
 	while (++i < f[TOTAL])
 	{
 		if (max < vars->orimap[i].z)
@@ -53,8 +56,8 @@ float	ft_factor(t_vars *vars, float f[10])
 
 void	make_earth(t_vars *vars)
 {
-	int				i;
-	float			f[10];
+	int		i;
+	float	f[10];
 
 	f[HIGH] = vars->info.height;
 	f[WIDT] = vars->info.width;

@@ -6,7 +6,7 @@
 /*   By: seok <seok@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 21:53:31 by seok              #+#    #+#             */
-/*   Updated: 2023/07/09 23:10:15 by seok             ###   ########.fr       */
+/*   Updated: 2023/07/12 13:14:20 by seok             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,17 +91,13 @@ void	parsing(t_vars *vars, char *av)
 		h++;
 		if (vars->info.width != i)
 			my_error("different width length");
+		while (--i >= 0)
+			free(word[i]);
+		free(word);
 	}
-for (int i = 0; word[i]; i++)
-	printf("%d ", i);
-	printf("\nword[0] : %s\n", *word);
-	printf("\nword[0] : %s\n", word[2]);
-	printf("word[0] : %c\n", word[2][2]);
-	while (i-- > 0)
-		free(word[i]);
-	free(word);
 	close(fd);
 }
+
 
 int	input_coordinates(char **word, t_vars *vars, int h)
 {
@@ -119,7 +115,10 @@ int	input_coordinates(char **word, t_vars *vars, int h)
 			vars->orimap[i + (vars->info.width * h)].color = 0x00E47AE0;
 		if (vars->info.color == true)
 			vars->orimap[i + (vars->info.width * h)].color \
-				= my_atoi_hex(split_hex(word[i]));
+				= my_atoi_hex(word[i]);
+		// if (vars->info.color == true)
+		// 	vars->orimap[i + (vars->info.width * h)].color \
+		// 		= my_atoi_hex(split_hex(word[i]));
 	}
 	return (i);
 }

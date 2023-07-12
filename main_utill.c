@@ -6,7 +6,7 @@
 /*   By: seok <seok@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 00:17:39 by quesera           #+#    #+#             */
-/*   Updated: 2023/07/08 17:04:37 by seok             ###   ########.fr       */
+/*   Updated: 2023/07/11 21:28:51 by seok             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,15 @@ void	copy_ori(t_vars *vars, t_coordinate *ori, t_coordinate *new)
 		new[i].z = ori[i].z * vars->z_scale;
 		new[i].color = ori[i].color;
 	}
+}
+
+char	*split_hex(char *str)
+{
+	char	**word;
+	// char	*result;
+
+	word = ft_split(str, ',');
+	// result = word[1];
+	// return (result);
+	return (word[1]);
 }

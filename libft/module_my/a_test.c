@@ -1,3 +1,4 @@
+
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
@@ -5,8 +6,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: seok <seok@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/11 21:09:49 by seok              #+#    #+#             */
-/*   Updated: 2023/07/12 13:14:35 by seok             ###   ########.fr       */
+/*   Created: 2023/06/28 00:25:39 by seok              #+#    #+#             */
+/*   Updated: 2023/07/11 20:57:35 by seok             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +25,18 @@ int	htod(char c)
 		else if ('a' <= c && c <= 'f')
 			return (c - 'a' + 10);
 		else
-		{
 			my_error("atoi_hex");
-		}
 	}
 	return (-1);
+}
+
+char	*split_hex(char *str)
+{
+	char	**word;
+	char	*result;
+
+	word = ft_split(str, ',');
+	return (result);
 }
 
 int	my_atoi_hex(const char *str)
@@ -37,14 +45,10 @@ int	my_atoi_hex(const char *str)
 	int	digit;
 	int	i;
 	int	sign;
-	char	**word;
 
 	result = 0;
 	digit = 1;
 	sign = 0;
-	word = ft_split(str, ',');
-	str = word[1];
-	i = 0;
 	while (ft_isspace(*str))
 		str++;
 	if (ft_strncmp(str, "0x", 2) == 0)
@@ -57,8 +61,5 @@ int	my_atoi_hex(const char *str)
 		result += htod(str[i]) * digit;
 		digit *= 16;
 	}
-	while (word[i])
-		free(word[i++]);
-	free(word);
 	return (result);
 }

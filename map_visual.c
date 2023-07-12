@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_vis.c                                          :+:      :+:    :+:   */
+/*   map_visual.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: seok <seok@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 06:17:30 by seok              #+#    #+#             */
-/*   Updated: 2023/07/09 22:17:19 by seok             ###   ########.fr       */
+/*   Updated: 2023/07/11 20:34:48 by seok             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,13 @@
 
 void	set_map_scale(t_vars *vars)
 {
-	int i;
+	int	i;
 	int	win;
 	int	map;
 
 	i = -1;
+	if (WIN_H <= 200 || WIN_W <= 200)
+		my_error("DON't do that");
 	win = (WIN_W - 200) / (WIN_H - 200);
 	map = vars->info.width / vars->info.height;
 	if (win >= map)
@@ -26,7 +28,6 @@ void	set_map_scale(t_vars *vars)
 	else
 		vars->info.scale = (WIN_H - 200) / vars->info.height;
 	vars->info.high = vars->info.scale / 6;
-	// printf("scale : %d %d\n", vars->info.scale, vars->info.high);
 	while (++i < vars->info.width * vars->info.height)
 	{
 		vars->map[i].x *= vars->info.scale;
@@ -37,20 +38,19 @@ void	set_map_scale(t_vars *vars)
 
 void	set_map_center(t_vars *vars)
 {
-	int i;
+	int	i;
 
 	i = -1;
 	while (++i < vars->info.width * vars->info.height)
 	{
-		vars->map[i].x -= (vars->info.width  * vars->info.scale / 2);
+		vars->map[i].x -= (vars->info.width * vars->info.scale / 2);
 		vars->map[i].y -= (vars->info.height * vars->info.scale / 2);
 	}
 }
 
 void	set_window_center(t_vars *vars, t_coordinate *map)
 {
-	int i;
-	
+	int	i;
 
 	i = -1;
 	while (++i < vars->info.width * vars->info.height)
@@ -62,11 +62,12 @@ void	set_window_center(t_vars *vars, t_coordinate *map)
 
 void	draw_map(t_vars *vars)
 {
-	int	row;
-	int	col;
+	int				row;
+	int				col;
 	t_coordinate	*tmp;
 
-	tmp = malloc(sizeof(t_coordinate) * vars->info.width * vars->info.height);
+	tmp = alloc_guard(sizeof(t_coordinate), vars->info.width * \
+												vars->info.height);
 	copy_ori(vars, vars->map, tmp);
 	row = -1;
 	set_window_center(vars, tmp);
@@ -74,10 +75,12 @@ void	draw_map(t_vars *vars)
 	{
 		col = -1;
 		while (++col < vars->info.width - 1)
-			make_line(&tmp[vars->info.width * row + col], &tmp[vars->info.width * row + col + 1], &vars->image);
+			make_line(&tmp[vars->info.width * row + col], &tmp[vars->info.width \
+						* row + col + 1], &vars->image);
 		col = -1;
 		while (row < vars->info.height - 1 && ++col < vars->info.width)
-			make_line(&tmp[vars->info.width * row + col], &tmp[vars->info.width * (row + 1) + col], &vars->image);
+			make_line(&tmp[vars->info.width * row + col], &tmp[vars->info.width \
+						* (row + 1) + col], &vars->image);
 	}
 	free(tmp);
 }
